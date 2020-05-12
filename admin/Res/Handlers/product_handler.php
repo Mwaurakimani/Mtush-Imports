@@ -373,6 +373,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "Sort";
                     break;
                 case "Delete";
+                    $allResponse = true;
                     foreach($ids_array as $id){
                         $conn = $moderator->getConnection();
                         //confirm it exist
@@ -380,7 +381,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         // echo $_SESSION['SESSION_TYPE'];
                         if( ($exist == false) || ($_SESSION['SESSION_TYPE']!='Admin') ){
-                            echo "access denied";
+                            echo "Unable to delete Item";
                         }else{
                             //delete product
                             $dataset = array(
@@ -391,10 +392,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $type = "s";
                             $responce = $admin->delete_from_database($dataset, $table, $admin->getConnection(), $type);
 
-                            print_r($responce);
-
+                            if($responce == false){
+                                $allResponse = false;
+                            }
                         }
                     }    
+                    echo $allResponse;
 
                     break;
                 case "Disable";

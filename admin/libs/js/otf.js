@@ -1078,6 +1078,11 @@ function product_bulk_function() {
     products_action("bulk_products_action", data, call_back);
 
     function call_back(data) {
-        console.log(data);
+        if ((data == true) || (data === 1)) {
+            alert("Deletion successful");
+            renderContent('Catalog');
+        } else {
+            alert("Deletion Failed");
+        }
     }
 }
