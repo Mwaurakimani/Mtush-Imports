@@ -22,41 +22,39 @@ passheader();
     <div class="container catalog products_categories">
         <div class="row">
             <?php
-                if(isset($_GET['id'])){
-                    echo $_GET['id'];
-                }else{
-                    echo "No ID";
-                }
+
+            $category;
+            $Products_response = array();
+            $simple_products_response = array();
+            $bind_product = array();
+
+            if (!isset($_GET['category'])) {
+                echo "No ID";
+                //TODO: work on the alternatives
+            } else {
+                $category = $_GET['category'];
                 $products_exist = false;
+
                 $fields = '*';
                 $table = "product_category_domain";
                 $ref = [
-                    array('category_id',$_GET['id'])
+                    array('category_id', $_GET['category'])
                 ];
-                $type ="s";
+                $type = "s";
                 $User->__set('set_strict', true);
 
-                $res = $User->get_by_ref($fields, $table,$ref,$type);
+                $res = $User->get_by_ref($fields, $table, $ref, $type);
 
                 if ($res[0] == true) {
                     $categories_exist = true;
-                    
                 }
+            }
+            
+            
             ?>
-                <div class="col-sm col-md-4 col-lg-3 prod_card">
-                    <div class="product_cards">
-                        <div class="img_el">
-                            <img src="<?php echo PROD_IMAGES . "shoe.jpg" ?>" alt="">
-                        </div>
-                        <h6>Male</h6>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, aspernatur cumque voluptate architecto deserunt commodi vitae Fuga amet dignissimos vel quo!</p>
-                        <button>
-                            View
-                        </button>
-                    </div>
-                </div>
+
             <?php
-              
+
             ?>
         </div>
     </div>
@@ -65,3 +63,16 @@ passheader();
     pass_footer()
     ?>
 </body>
+
+<!-- <div class="col-sm col-md-4 col-lg-3 prod_card">
+    <div class="product_cards">
+        <div class="img_el">
+            <img src="<?php echo PROD_IMAGES . "shoe.jpg" ?>" alt="">
+        </div>
+        <h6>Male</h6>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, aspernatur cumque voluptate architecto deserunt commodi vitae Fuga amet dignissimos vel quo!</p>
+        <button>
+            View
+        </button>
+    </div>
+</div> -->
