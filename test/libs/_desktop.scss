@@ -1,0 +1,29 @@
+@mixin desktops {
+    .mobile_banner {
+        height: 90vh;
+    }
+    footer {
+        & .desktop_footer {
+            & .row {
+                & .col-md-0 {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@mixin largedesktops {
+    .mobile_banner {
+        height: 90vh;
+    }
+    footer {
+        & .desktop_footer {
+            & .row {
+                & .col-md-0 {
+                    display: block;
+                }
+            }
+        }
+    }
+}

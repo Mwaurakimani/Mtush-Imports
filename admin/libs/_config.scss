@@ -1,0 +1,253 @@
+        @mixin transition {
+            transition: all 0.5s ease-in;
+        }
+        
+        @mixin transition2 {
+            transition: all 0.2s ease-in;
+        }
+        
+        @mixin rotater {
+            transform: rotateZ(180deg);
+            @include transition;
+        }
+        
+        @mixin rev_rotater {
+            transform: rotateZ(0deg);
+            @include transition;
+        }
+        
+        @mixin maniactivity {
+            padding-bottom: 20px;
+            width: 300px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #b8b8b8;
+        }
+        
+        @mixin dropdwn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-45deg);
+            & span {
+                width: 10px;
+                height: 10px;
+                border-top: 2px solid grey;
+                border-right: 2px solid grey;
+                transform: rotateX(0deg);
+                transition: all 200ms linear;
+            }
+            & .open_sub_product {
+                transition: all 200ms linear;
+                transform: rotateZ(180deg);
+            }
+        }
+        
+        @mixin text_input_prototype_1 {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: warp;
+            overflow: visible;
+            & p {
+                padding: 0;
+                margin: 0;
+                width: 180px;
+                height: 30px;
+                font-size: 90%;
+                line-height: 30px;
+                color: rgb(90, 90, 90);
+                padding-left: 10px;
+            }
+            & input {
+                height: 35px;
+                padding: 0;
+                padding-left: 10px;
+                margin: 0;
+                display: block;
+                width: calc(100% - 230px);
+                border-radius: 5px;
+                border: 1px solid rgb(139, 139, 139);
+                font-size: 90%;
+                outline: none;
+                &:focus {
+                    border: 2px solid rgb(230, 48, 48);
+                }
+                &:active {
+                    border: 2px solid rgb(230, 48, 48);
+                }
+            }
+            & select {
+                height: 30px;
+                padding: 0;
+                padding-left: 10px;
+                margin: 0;
+                display: block;
+                width: calc(100% - 230px);
+                border-radius: 5px;
+                border: 1px solid rgb(139, 139, 139);
+                font-size: 90%;
+                outline: none;
+                &:focus {
+                    border: 2px solid rgb(230, 48, 48);
+                }
+                &:active {
+                    border: 2px solid rgb(230, 48, 48);
+                }
+            }
+        }
+        
+        @mixin addinfo {
+            width: 93%;
+            margin: auto;
+            height: 25px;
+            overflow: hidden;
+            & p {
+                width: 100%;
+                height: 25px;
+                padding: 1px;
+                margin: 0;
+                color: blue;
+                text-align: center;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgb(228, 228, 228);
+                }
+            }
+            & .content_area {
+                width: 100%;
+                & .input_text_prptotype {
+                    width: 100%;
+                    padding: 10 0px;
+                    @include text_input_prototype_1;
+                }
+            }
+        }
+        
+        @mixin control_head {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        
+        @mixin custom_checkbox {
+            & .c_container {
+                margin: 0;
+                max-width: 50px;
+                display: block;
+                position: relative;
+                padding-left: 35px;
+                cursor: pointer;
+                font-size: 22px;
+                height: 20px;
+                width: 20px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                border-radius: 3px;
+                /* Hide the browser's default checkbox */
+                & input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                    &:checked~.checkmark {
+                        background-color: rgb(243, 33, 33);
+                        border: none;
+                    }
+                    /* Show the checkmark when checked */
+                    &:checked~.checkmark:after {
+                        display: block;
+                    }
+                }
+                /* Create a custom checkbox */
+                & .checkmark {
+                    position: absolute;
+                    border-radius: 3px;
+                    top: 0;
+                    left: 0;
+                    height: 15px;
+                    width: 15px;
+                    border: solid 1px grey;
+                    &:hover input~.checkmark {
+                        background-color: #ccc;
+                    }
+                    /* Create the checkmark/indicator (hidden when not checked) */
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                    }
+                    /* Style the checkmark/indicator */
+                    &:after {
+                        left: 5px;
+                        top: 2px;
+                        width: 5px;
+                        height: 10px;
+                        border: solid white;
+                        border-width: 0 3px 3px 0;
+                        -webkit-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+        
+        $system-red: rgb(218, 29, 29);
+        /* clears the 'X' from Internet Explorer */
+        
+        input[type=search]::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+        
+        input[type=search]::-ms-reveal {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+        /* clears the 'X' from Chrome */
+        
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration {
+            display: none;
+        }
+        /* width */
+        
+         ::-webkit-scrollbar {
+            width: 7px;
+            border-radius: 5px;
+        }
+        /* Track */
+        
+         ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        /* Handle */
+        
+         ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+        /* Handle on hover */
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+            border-radius: 3px;
+        }

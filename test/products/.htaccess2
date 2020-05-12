@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+RewriteRule ^([0-9]+)$ /products/index.php?prod=$1 [L,QSA]
+
+RewriteRule ^list.php/([0-9]+)$ /products/list/index.php?id=$1 [L,QSA]

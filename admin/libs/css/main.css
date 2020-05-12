@@ -1,0 +1,4062 @@
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 3px;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body .app_overlay,
+html .app_overlay {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: none;
+}
+
+body .app_overlay .console,
+html .app_overlay .console {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(37, 37, 37, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .app_overlay .console .visual,
+html .app_overlay .console .visual {
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+body .app_overlay .console .visual .account_notifications,
+html .app_overlay .console .visual .account_notifications {
+  width: 60%;
+  height: 98%;
+  border-radius: 5px;
+  border: 1px solid #bebebe;
+}
+
+body .app_overlay .console .visual .system_notifications,
+html .app_overlay .console .visual .system_notifications {
+  width: 35%;
+  height: 98%;
+  overflow-x: auto;
+  font-size: 78%;
+}
+
+body .app_overlay .console .visual .system_notifications .system_error,
+html .app_overlay .console .visual .system_notifications .system_error {
+  width: 100%;
+  background-color: #e9e9e9;
+  border: 1px solid lightgray;
+  border-left: 5px solid #e93030;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 5px;
+}
+
+body .app_overlay .console .visual .system_notifications .system_error p,
+html .app_overlay .console .visual .system_notifications .system_error p {
+  padding: 5px;
+  margin: 0px;
+}
+
+body .app_overlay .console .visual .system_notifications .system_error > div,
+html .app_overlay .console .visual .system_notifications .system_error > div {
+  width: 16px;
+  height: 16px;
+  color: #505050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+body .app_overlay .console .visual .system_notifications .system_error > div:hover,
+html .app_overlay .console .visual .system_notifications .system_error > div:hover {
+  cursor: pointer;
+  background-color: #9c9c9c;
+  color: black;
+}
+
+body .app_overlay .console .visual .system_notifications .system_alert,
+html .app_overlay .console .visual .system_notifications .system_alert {
+  width: 100%;
+  background-color: #e9e9e9;
+  border: 1px solid lightgray;
+  border-left: 5px solid #e96b30;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5px;
+}
+
+body .app_overlay .console .visual .system_notifications .system_alert p,
+html .app_overlay .console .visual .system_notifications .system_alert p {
+  padding: 5px;
+  margin: 0px;
+}
+
+body .app_overlay .console .visual .system_notifications .system_alert > div,
+html .app_overlay .console .visual .system_notifications .system_alert > div {
+  width: 16px;
+  height: 16px;
+  color: #505050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+body .app_overlay .console .visual .system_notifications .system_alert > div:hover,
+html .app_overlay .console .visual .system_notifications .system_alert > div:hover {
+  cursor: pointer;
+  background-color: #9c9c9c;
+  color: black;
+}
+
+body .app_overlay .console .visual .system_notifications .system_update,
+html .app_overlay .console .visual .system_notifications .system_update {
+  width: 100%;
+  background-color: #e9e9e9;
+  border: 1px solid lightgray;
+  border-left: 5px solid #2de92d;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5px;
+}
+
+body .app_overlay .console .visual .system_notifications .system_update p,
+html .app_overlay .console .visual .system_notifications .system_update p {
+  padding: 5px;
+  margin: 0px;
+}
+
+body .app_overlay .console .visual .system_notifications .system_update > div,
+html .app_overlay .console .visual .system_notifications .system_update > div {
+  width: 16px;
+  height: 16px;
+  color: #505050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+body .app_overlay .console .visual .system_notifications .system_update > div:hover,
+html .app_overlay .console .visual .system_notifications .system_update > div:hover {
+  cursor: pointer;
+  background-color: #9c9c9c;
+  color: black;
+}
+
+body .app_overlay .console #visual,
+html .app_overlay .console #visual {
+  background-color: white;
+}
+
+body nav,
+html nav {
+  width: 100%;
+  height: 55px;
+  box-shadow: 1px 1px 5px grey;
+}
+
+body nav .logo_panel,
+html nav .logo_panel {
+  float: left;
+  width: 200px;
+  margin-left: 20px;
+  padding-top: 3px;
+  padding-left: 3px;
+  height: 100%;
+}
+
+body nav .search_nav,
+html nav .search_nav {
+  float: left;
+  width: 400px;
+  height: 100%;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+body nav .search_nav button,
+html nav .search_nav button {
+  position: relative;
+  top: -3px;
+  left: -43px;
+  background-color: transparent;
+  border: none;
+}
+
+body nav .accountdrpdwn,
+html nav .accountdrpdwn {
+  position: relative;
+  margin-right: 80px;
+  margin-top: 2px;
+  width: 50px;
+  height: 50px;
+  float: right;
+}
+
+body nav .accountdrpdwn .dropper,
+html nav .accountdrpdwn .dropper {
+  display: none;
+  left: -80px;
+  position: absolute;
+  width: 200px;
+  z-index: 10;
+  padding-top: 5px;
+}
+
+body nav .accountdrpdwn .dropper .linkwrapper,
+html nav .accountdrpdwn .dropper .linkwrapper {
+  width: 100%;
+  height: 250px;
+  background-color: white;
+  box-shadow: 1px 1px 5px grey;
+  border: 1px solid #a1a1a1;
+}
+
+body nav .accountdrpdwn .dropper .dpic_holder,
+html nav .accountdrpdwn .dropper .dpic_holder {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+body nav .accountdrpdwn .dropper p,
+html nav .accountdrpdwn .dropper p {
+  text-align: center;
+  padding-bottom: 0px;
+  margin: 0;
+}
+
+body nav .accountdrpdwn .dropper .Edit,
+html nav .accountdrpdwn .dropper .Edit {
+  width: 110px;
+  height: 30px;
+  margin: auto;
+  text-align: center;
+  color: #fb6161;
+  border: 2px solid #fb6161;
+  margin-bottom: 10px;
+}
+
+body nav .accountdrpdwn .dropper .Edit:hover,
+html nav .accountdrpdwn .dropper .Edit:hover {
+  background-color: #fb6161;
+  color: white;
+  cursor: pointer;
+}
+
+body .wrapper,
+html .wrapper {
+  width: 100%;
+  height: calc(100% - 55px);
+  background-color: #eff1f2;
+}
+
+body .wrapper .navi,
+html .wrapper .navi {
+  width: 200px;
+  height: 100%;
+  background-color: #242629;
+  float: left;
+  transition: width 800ms;
+  overflow-y: scroll;
+}
+
+body .wrapper .navi .navi_holder,
+html .wrapper .navi .navi_holder {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+}
+
+body .wrapper .navi .navi_holder .hideorshow,
+html .wrapper .navi .navi_holder .hideorshow {
+  padding-top: 5px;
+  width: 100%;
+  height: 40px;
+}
+
+body .wrapper .navi .navi_holder .hideorshow img,
+html .wrapper .navi .navi_holder .hideorshow img {
+  float: right;
+  margin-right: 5px;
+}
+
+body .wrapper .navi .navi_holder .hideorshow > #shownav,
+html .wrapper .navi .navi_holder .hideorshow > #shownav {
+  display: none;
+}
+
+body .wrapper .navi .dashboardbtn,
+html .wrapper .navi .dashboardbtn {
+  width: 100%;
+  height: 40px;
+  padding: 8px 3px 0 5px;
+  overflow: hidden;
+  transition: all 200ms ease-in;
+}
+
+body .wrapper .navi .dashboardbtn img,
+html .wrapper .navi .dashboardbtn img {
+  padding-left: 5px;
+  float: left;
+  font-size: 90%;
+}
+
+body .wrapper .navi .dashboardbtn p,
+html .wrapper .navi .dashboardbtn p {
+  padding-left: 5px;
+  float: left;
+  color: #d1d1d1;
+  font-size: 90%;
+}
+
+body .wrapper .navi .dashboardbtn:hover,
+html .wrapper .navi .dashboardbtn:hover {
+  transition: all 200ms ease-in;
+  background-color: #121212;
+  cursor: pointer;
+  border-left: 5px solid #f52525;
+}
+
+body .wrapper .navi .nav_splitter,
+html .wrapper .navi .nav_splitter {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  font-weight: 600;
+  font-size: 110%;
+  color: #e3e3e3;
+}
+
+body .wrapper .navi .cardBtn .presssidedbtn,
+html .wrapper .navi .cardBtn .presssidedbtn {
+  width: 100%;
+  height: 40px;
+  padding: 8px 3px 0 5px;
+  overflow: hidden;
+  transition: all 200ms ease-in;
+}
+
+body .wrapper .navi .cardBtn .presssidedbtn img,
+html .wrapper .navi .cardBtn .presssidedbtn img {
+  padding-left: 5px;
+  float: left;
+  color: #d1d1d1;
+  font-size: 90%;
+}
+
+body .wrapper .navi .cardBtn .presssidedbtn p,
+html .wrapper .navi .cardBtn .presssidedbtn p {
+  padding-left: 5px;
+  float: left;
+  color: #d1d1d1;
+  font-size: 90%;
+}
+
+body .wrapper .navi .cardBtn .presssidedbtn:hover,
+html .wrapper .navi .cardBtn .presssidedbtn:hover {
+  background-color: #121212;
+  cursor: pointer;
+  border-left: 5px solid #f52525;
+  transition: all 200ms ease-in;
+}
+
+body .wrapper .navi .active_btn,
+html .wrapper .navi .active_btn {
+  transition: all 200ms ease-in;
+  background-color: #121212;
+  cursor: pointer;
+  border-left: 5px solid #f52525;
+}
+
+body .wrapper .content,
+html .wrapper .content {
+  width: calc(100% - 200px);
+  height: 100%;
+  float: left;
+  transition: width 800ms;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: content;
+}
+
+body .wrapper .content .head_panel,
+html .wrapper .content .head_panel {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #d6d6d6;
+  background-color: white;
+  margin-bottom: 13px;
+}
+
+body .wrapper .content .head_panel > .bread_crums,
+html .wrapper .content .head_panel > .bread_crums {
+  padding-left: 5px;
+  color: grey;
+  width: 100%;
+  height: 18px;
+  font-size: 90%;
+}
+
+body .wrapper .content .head_panel > .subnavigator,
+html .wrapper .content .head_panel > .subnavigator {
+  width: 100%;
+  height: calc(100% - 18px);
+}
+
+body .wrapper .content .head_panel > .subnavigator > .current,
+html .wrapper .content .head_panel > .subnavigator > .current {
+  float: left;
+  width: 200px;
+  height: calc(100%);
+}
+
+body .wrapper .content .head_panel > .subnavigator > .current p,
+html .wrapper .content .head_panel > .subnavigator > .current p {
+  padding: 5px;
+  padding-left: 20px;
+  font-size: 130%;
+  font-weight: 600;
+  color: grey;
+}
+
+body .wrapper .content .head_panel > .subnavigator .menucontrols,
+html .wrapper .content .head_panel > .subnavigator .menucontrols {
+  width: 500px;
+  height: 100%;
+  float: right;
+}
+
+body .wrapper .content .head_panel > .subnavigator .menucontrols > div,
+html .wrapper .content .head_panel > .subnavigator .menucontrols > div {
+  float: right;
+  margin-right: 20px;
+}
+
+body .wrapper .content .head_panel > .subnavigator .menucontrols > .addNew,
+html .wrapper .content .head_panel > .subnavigator .menucontrols > .addNew {
+  position: relative;
+  top: 2px;
+  left: 2px;
+  width: 140px;
+  height: 90%;
+  background-color: #da1d1d;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+body .wrapper .content .head_panel > .subnavigator .menucontrols > .addNew:hover,
+html .wrapper .content .head_panel > .subnavigator .menucontrols > .addNew:hover {
+  box-shadow: 0 0 5px 2px #f38b8b;
+}
+
+body .wrapper .content .sub_menucontrol,
+html .wrapper .content .sub_menucontrol {
+  clear: both;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+body .wrapper .content .sub_menucontrol ul,
+html .wrapper .content .sub_menucontrol ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+body .wrapper .content .sub_menucontrol ul li,
+html .wrapper .content .sub_menucontrol ul li {
+  width: 120px;
+  height: 40px;
+  margin: 0 10px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+body .wrapper .content .sub_menucontrol ul li button,
+html .wrapper .content .sub_menucontrol ul li button {
+  outline: none;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  color: white;
+  border: 1px solid #ee2e2e;
+  border-radius: 5px;
+  color: #ee2e2e;
+}
+
+body .wrapper .content .sub_menucontrol ul li button:hover,
+html .wrapper .content .sub_menucontrol ul li button:hover {
+  background-color: #ee2e2e;
+  color: white;
+}
+
+body .wrapper .content .sub_menucontrol ul li button:active,
+html .wrapper .content .sub_menucontrol ul li button:active {
+  outline: none;
+}
+
+body .wrapper .content .calnder_set,
+html .wrapper .content .calnder_set {
+  width: 97%;
+  height: 90px;
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid #b8b8b8;
+  padding-top: 10px;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+body .wrapper .content .calnder_set .sub2nava,
+html .wrapper .content .calnder_set .sub2nava {
+  float: left;
+  margin-top: 10px;
+  width: 220px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 0;
+}
+
+body .wrapper .content .calnder_set .sub2nava > ul,
+html .wrapper .content .calnder_set .sub2nava > ul {
+  margin: 0;
+  padding: 0;
+}
+
+body .wrapper .content .calnder_set .sub2nava > ul > li,
+html .wrapper .content .calnder_set .sub2nava > ul > li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: 70px;
+  height: 40px;
+  line-height: 35px;
+  text-align: center;
+  box-sizing: content-box;
+  border: 1px solid #bdbdbd;
+}
+
+body .wrapper .content .calnder_set .sub2nava > ul > li:hover,
+html .wrapper .content .calnder_set .sub2nava > ul > li:hover {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #2a8cf5;
+  cursor: pointer;
+}
+
+body .wrapper .content .calnder_set .input_calender,
+html .wrapper .content .calnder_set .input_calender {
+  margin-right: 5px;
+  margin-top: 10px;
+  float: right;
+  width: 600px;
+  height: 40px;
+}
+
+body .wrapper .content .calnder_set .input_calender .float_left_calender,
+html .wrapper .content .calnder_set .input_calender .float_left_calender {
+  font-style: italic;
+  float: left;
+  padding: 1px;
+}
+
+body .wrapper .content .calnder_set .input_calender .float_right_calender,
+html .wrapper .content .calnder_set .input_calender .float_right_calender {
+  font-style: italic;
+  float: right;
+  padding: 1px;
+}
+
+body .wrapper .content .splashboard,
+html .wrapper .content .splashboard {
+  width: 97%;
+  padding-bottom: 20px;
+  margin: auto;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .mainactivities4,
+html .wrapper .content .splashboard .mainactivities4 {
+  padding-bottom: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #b8b8b8;
+  width: calc(100%);
+  height: fit-content;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > table,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > table {
+  font-size: 90%;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > table > thead > tr th,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > table > thead > tr th {
+  word-wrap: break-word;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > table > tbody > tr,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > table > tbody > tr {
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > table > tbody > tr td,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > table > tbody > tr td {
+  word-wrap: break-word;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl {
+  width: 100%;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead {
+  width: 100%;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th {
+  word-wrap: break-word;
+  height: fit-content;
+  border-bottom: none;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1),
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  max-width: 50px;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container {
+  margin: 0;
+  max-width: 50px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
+  user-select: none;
+  border-radius: 3px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container input,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* Show the checkmark when checked */
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark {
+  background-color: #f32121;
+  border: none;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark:after,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container .checkmark,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container .checkmark {
+  position: absolute;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: solid 1px grey;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container .checkmark:hover input ~ .checkmark,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(2),
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(2) {
+  width: 10px;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(2) p,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > thead > tr th:nth-child(2) p {
+  text-align: center;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody {
+  width: 100%;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr {
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td {
+  word-wrap: break-word;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1),
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) {
+  max-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container {
+  margin: 0;
+  max-width: 50px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
+  user-select: none;
+  border-radius: 3px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container input,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* Show the checkmark when checked */
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark {
+  background-color: #f32121;
+  border: none;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark:after,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container .checkmark,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container .checkmark {
+  position: absolute;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: solid 1px grey;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:hover input ~ .checkmark,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(2),
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(2) {
+  width: 10px;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(2) img,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(2) img {
+  max-height: 60px;
+  object-fit: scale-down;
+  display: block;
+  margin: auto;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(3),
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(3) {
+  max-width: 300px;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(4),
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(4) {
+  width: 120px;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(7),
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 > #products_tbl > tbody > tr td:nth-child(7) {
+  max-width: 200px;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors {
+  width: 100%;
+  height: 300px;
+  padding-top: 15px;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors img,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors img {
+  display: block;
+  width: 100px;
+  margin: auto;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors p,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors p {
+  text-align: center;
+  font-size: 150%;
+  font-weight: 500;
+  color: #555555;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors button,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors button {
+  background-color: #e02c2c;
+  width: 90px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  padding: 0 5px;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors button:hover,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noVendors button:hover {
+  background-color: #af1212;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts {
+  width: 100%;
+  height: 300px;
+  padding-top: 15px;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts img,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts img {
+  display: block;
+  width: 100px;
+  margin: auto;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts p,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts p {
+  text-align: center;
+  font-size: 150%;
+  font-weight: 500;
+  color: #555555;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts button,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts button {
+  background-color: #e02c2c;
+  width: 90px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  padding: 0 5px;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts button:hover,
+html .wrapper .content .splashboard .mainactivities4 .salesListdash2 .noProducts button:hover {
+  background-color: #af1212;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .cardtitle,
+html .wrapper .content .splashboard .mainactivities4 .cardtitle {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #dedede;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+body .wrapper .content .splashboard .mainactivities4 .spanner,
+html .wrapper .content .splashboard .mainactivities4 .spanner {
+  width: 100%;
+  height: 10px;
+  background-color: green;
+}
+
+body .wrapper .content .splashboard .addItem,
+html .wrapper .content .splashboard .addItem {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #b8b8b8;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det,
+html .wrapper .content .splashboard .addItem > .reg_det {
+  width: 97%;
+  margin: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 6px grey;
+  margin-bottom: 20px;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det h5,
+html .wrapper .content .splashboard .addItem > .reg_det h5 {
+  display: block;
+  margin: auto;
+  color: white;
+  font-weight: 700;
+  background-color: #da1d1d;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  padding-left: 40px;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder p,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder p {
+  line-height: 35px;
+  display: inline-block;
+  width: 300px;
+  padding-left: 30px;
+  font-weight: 500;
+  color: #626262;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder .value,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder .value {
+  line-height: 35px;
+  display: inline-block;
+  width: 300px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder input,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder input {
+  display: inline-block;
+  height: 100%;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #9c9c9c;
+  padding-left: 5px;
+  color: #626262;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder input:focus,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder input:focus {
+  border: 2px solid #fa7373;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder select,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder select {
+  display: inline-block;
+  height: 100%;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #9c9c9c;
+  padding-left: 5px;
+  color: #626262;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder select:focus,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder select:focus {
+  border: 2px solid #fa7373;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder button,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder button {
+  margin-left: 25px;
+  display: inline-block;
+  display: none;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder .showPassword,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder .showPassword {
+  height: 30px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder .showPassword img,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder .showPassword img {
+  height: 30px;
+  width: auto;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder .userPassword,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder .userPassword {
+  height: 30px;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .addItem > .reg_det > .field_holder .userPassword img,
+html .wrapper .content .splashboard .addItem > .reg_det > .field_holder .userPassword img {
+  height: 30px;
+  width: auto;
+}
+
+body .wrapper .content .splashboard .addItem > .Submition,
+html .wrapper .content .splashboard .addItem > .Submition {
+  position: relative;
+  top: 0;
+  margin: auto;
+  width: 150px;
+  height: 40px;
+  background-color: #da1d1d;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 0 grey;
+  transition: all 200ms ease-in;
+}
+
+body .wrapper .content .splashboard .addItem > .Submition button,
+html .wrapper .content .splashboard .addItem > .Submition button {
+  font-weight: 500;
+  color: white;
+  position: static;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .addItem > .Submition:hover,
+html .wrapper .content .splashboard .addItem > .Submition:hover {
+  transition: all 200ms ease-in;
+  top: -3px;
+  box-shadow: 0 0 8px #666666;
+}
+
+body .wrapper .content .splashboard .action_description,
+html .wrapper .content .splashboard .action_description {
+  width: 100%;
+  height: 55px;
+  font-size: 150%;
+}
+
+body .wrapper .content .splashboard .content_edit,
+html .wrapper .content .splashboard .content_edit {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit,
+html .wrapper .content .splashboard .content_edit .right_edit {
+  width: 78%;
+  height: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_name_elem,
+html .wrapper .content .splashboard .content_edit .right_edit .product_name_elem {
+  width: 97%;
+  height: 55px;
+  margin-bottom: 10px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_name_elem input,
+html .wrapper .content .splashboard .content_edit .right_edit .product_name_elem input {
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #bebebe;
+  border-radius: 4px;
+  margin: auto;
+  font-size: 130%;
+  padding-left: 10px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_name_elem input:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .product_name_elem input:focus {
+  outline: none;
+  border: solid red 2px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description {
+  width: 97%;
+  height: 450px;
+  margin-bottom: 20px;
+  background-color: white;
+  transition: height 500ms ease-out;
+  overflow: hidden;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b6b6b6;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod {
+  border: 1px solid silver;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod .elem_name,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod .elem_name {
+  width: 200px;
+  height: 100%;
+  font-weight: 500;
+  line-height: 50px;
+  padding-left: 5px;
+  color: #313131;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown span,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown span {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid grey;
+  border-right: 2px solid grey;
+  transform: rotateX(0deg);
+  transition: all 200ms linear;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown .open_sub_product,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown .open_sub_product {
+  transition: all 200ms linear;
+  transform: rotateZ(180deg);
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown:hover {
+  cursor: pointer;
+  background-color: #5a5a5a;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown:hover span,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description .elem_header_prod > .dropdown:hover span {
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description #editor,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description #editor {
+  width: 100%;
+  height: calc(100% - 100px);
+  border: 1px solid silver;
+  border-top: 0px solid grey;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .product_short_description #editor2,
+html .wrapper .content .splashboard .content_edit .right_edit .product_short_description #editor2 {
+  width: 100%;
+  height: calc(100% - 100px);
+  border: 1px solid silver;
+  border-top: 0px solid grey;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data {
+  width: 97%;
+  height: fit-content;
+  background-color: white;
+  transition: height 500ms ease-out;
+  margin-bottom: 20px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod {
+  border: 1px solid #b6b6b6;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .elem_name,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .elem_name {
+  width: 200px;
+  height: 100%;
+  font-weight: 500;
+  line-height: 50px;
+  padding-left: 5px;
+  color: #313131;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .prod_type, body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .sale_location,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .prod_type,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .sale_location {
+  height: 100%;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .prod_type select, body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .sale_location select,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .prod_type select,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .sale_location select {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #7e8993;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .prod_type select > optgroup, body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .sale_location select > optgroup,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .prod_type select > optgroup,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .sale_location select > optgroup {
+  padding-top: 3px;
+  color: #fc4747;
+  font-weight: 500;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .prod_type select option, body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .sale_location select option,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .prod_type select option,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod .sale_location select option {
+  width: 200px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown span,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown span {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid grey;
+  border-right: 2px solid grey;
+  transform: rotateX(0deg);
+  transition: all 200ms linear;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown .open_sub_product,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown .open_sub_product {
+  transition: all 200ms linear;
+  transform: rotateZ(180deg);
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown:hover {
+  cursor: pointer;
+  background-color: #5a5a5a;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown:hover span,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .elem_header_prod > .dropdown:hover span {
+  border-top: 2px solid #fdfdfd;
+  border-right: 2px solid white;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel {
+  width: 100%;
+  border: 1px solid silver;
+  border-top: 0px solid grey;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection {
+  height: 400px;
+  width: 20%;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection ul,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection ul {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection ul ul,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection ul ul {
+  width: calc(100% - 2px);
+  height: 40px;
+  padding-left: 10px;
+  line-height: 40px;
+  color: #d63434;
+  font-weight: 400;
+  cursor: pointer;
+  border: 1px #ececec solid;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection ul ul:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection ul ul:hover {
+  color: #5a5a5a;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection ul .active,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .left_selection ul .active {
+  color: #5a5a5a;
+  background-color: #ebebeb;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype {
+  width: 100%;
+  position: relative;
+  padding: 10 0px;
+  flex-wrap: wrap;
+  overflow: visible;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: warp;
+  overflow: visible;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype p {
+  padding: 0;
+  margin: 0;
+  width: 180px;
+  height: 30px;
+  font-size: 90%;
+  line-height: 30px;
+  color: #5a5a5a;
+  padding-left: 10px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype input,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype input {
+  height: 35px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype input:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype input:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype input:active,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype input:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype select,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype select {
+  height: 30px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype select:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype select:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype select:active,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype select:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype .vendor_sadgestion,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype .vendor_sadgestion {
+  overflow: hidden;
+  display: none;
+  border-radius: 3px;
+  z-index: 10;
+  right: 2%;
+  top: 41px;
+  position: absolute;
+  width: calc(100% - 229px);
+  box-shadow: 0 0 6px grey;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype .vendor_sadgestion ul,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype .vendor_sadgestion ul {
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: white;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype .vendor_sadgestion ul li,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype .vendor_sadgestion ul li {
+  width: 100%;
+  padding: 5px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype .vendor_sadgestion ul li:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype .vendor_sadgestion ul li:hover {
+  background-color: red;
+  color: white;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype textarea,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype textarea {
+  height: 200px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype textarea:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype textarea:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype textarea:active,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .input_text_prptotype textarea:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info {
+  width: 93%;
+  margin: auto;
+  height: 25px;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info p {
+  width: 100%;
+  height: 25px;
+  padding: 1px;
+  margin: 0;
+  color: blue;
+  text-align: center;
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info p:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info p:hover {
+  background-color: #e4e4e4;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area {
+  width: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype {
+  width: 100%;
+  padding: 10 0px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: warp;
+  overflow: visible;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype p {
+  padding: 0;
+  margin: 0;
+  width: 180px;
+  height: 30px;
+  font-size: 90%;
+  line-height: 30px;
+  color: #5a5a5a;
+  padding-left: 10px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype input,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype input {
+  height: 35px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype input:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype input:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype input:active,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype input:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype select,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype select {
+  height: 30px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype select:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype select:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype select:active,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection .sku_btn_nav .add_info .content_area .input_text_prptotype select:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link {
+  overflow-y: scroll;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .title_container,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .title_container {
+  width: 100px;
+  height: 100%;
+  float: left;
+  padding-top: 15px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .title_container p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .title_container p {
+  text-align: center;
+  width: 100%;
+  font-size: 85%;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container {
+  width: calc(100% - 100px);
+  height: 100%;
+  display: relative;
+  float: left;
+  overflow: visible;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .sell_display,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .sell_display {
+  padding: 3px;
+  width: 98%;
+  max-height: 100px;
+  margin: auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .sell_display p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .sell_display p {
+  font-size: 85%;
+  padding: 2px 10px 2px 0px;
+  margin: 3px;
+  border: 1px solid #a6a7aa;
+  border-radius: 3px;
+  background-color: #dddddd;
+  color: #3a3a3a;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .sell_display p span,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .sell_display p span {
+  cursor: pointer;
+  padding: 0 5px 0 5px;
+  color: #adadad;
+  font-weight: 500;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .sell_display p span:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .sell_display p span:hover {
+  color: black;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container input,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container input {
+  outline: none;
+  display: block;
+  margin: auto;
+  width: 98%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid grey;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container input:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container input:focus {
+  border: 2px solid red;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .search_display,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .search_display {
+  width: 98%;
+  margin: auto;
+  padding-top: 10px;
+  overflow: visible;
+  z-index: 30;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .search_display .srch_cont,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Link .upsell_container .usell_item_container .search_display .srch_cont {
+  z-index: 30;
+  width: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes {
+  overflow: visible;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute {
+  padding-top: 7px;
+  width: 100%;
+  height: 50px;
+  overflow: visible;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection {
+  margin-left: 20px;
+  margin-right: 10px;
+  position: relative;
+  height: 40px;
+  overflow: visible;
+  float: left;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection input,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection input {
+  padding-left: 3px;
+  border: 1px solid grey;
+  display: block;
+  margin: auto;
+  width: 230px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection input:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection input:focus {
+  border: 2px solid red;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection .sudgestion,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection .sudgestion {
+  position: absolute;
+  margin: auto;
+  width: 225px;
+  height: fit-content;
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 3px 6px grey;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection .sudgestion p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection .sudgestion p {
+  cursor: pointer;
+  width: 100%;
+  height: 35px;
+  margin: 0;
+  margin: 0px;
+  padding: 5px;
+  padding-left: 10px;
+  font-size: 90%;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection .sudgestion p:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute .selection .sudgestion p:hover {
+  background-color: red;
+  color: white;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute button,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute button {
+  display: block;
+  float: left;
+  width: 80px;
+  height: 35px;
+  outline: none;
+  border: 1px solid red;
+  color: red;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute button:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .element_add_attribute button:hover {
+  background-color: red;
+  color: white;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value {
+  width: calc(100% - 5px);
+  margin-bottom: 5px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #cecece;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head > p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head > p {
+  width: 200px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 40px;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head .elem_control,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head .elem_control {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head .elem_control span,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head .elem_control span {
+  border-radius: 1px;
+  width: 10px;
+  height: 10px;
+  border-left: 1px solid grey;
+  border-bottom: 1px solid grey;
+  transform: rotate(-45deg);
+  position: relative;
+  top: -3px;
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head .elem_control span:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head .elem_control span:hover {
+  background-color: #bdbdbd;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head .elem_control p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head .elem_control p {
+  padding: 0;
+  margin: 0;
+  line-height: 40px;
+  width: fit-content;
+  height: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_head:hover {
+  background-color: #f0f0f0;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body {
+  display: none;
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-top: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .name_column,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .name_column {
+  float: left;
+  width: 200px;
+  height: fit-content;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .name_column .label_item,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .name_column .label_item {
+  font-size: 90%;
+  padding-left: 10px;
+  width: 100%;
+  height: 30px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .name_column h6,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .name_column h6 {
+  padding-left: 15px;
+  height: 45px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column {
+  float: left;
+  width: calc(100% - 201px);
+  height: fit-content;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .label_item,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .label_item {
+  font-size: 90%;
+  padding-left: 10px;
+  width: 100%;
+  height: 30px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section {
+  width: 100%;
+  display: block;
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px #a3a3a3;
+  box-sizing: border-box;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section .selected,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section .selected {
+  width: 100%;
+  max-height: 99px;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section .selected p,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section .selected p {
+  font-size: 85%;
+  padding: 2px 10px 2px 0px;
+  margin: 3px;
+  border: 1px solid #a6a7aa;
+  border-radius: 3px;
+  background-color: #dddddd;
+  color: #3a3a3a;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section .selected p span,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section .selected p span {
+  cursor: pointer;
+  padding: 0 5px 0 5px;
+  color: #adadad;
+  font-weight: 500;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section .selected p span:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section .selected p span:hover {
+  color: black;
+  background-color: #c01f1f;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section input,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 10px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section input:focus,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section input:focus {
+  border: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section ul,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section ul {
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section ul li,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section ul li {
+  width: 100%;
+  height: 30px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section ul li:hover,
+html .wrapper .content .splashboard .content_edit .right_edit .SKU_data .sku_panel .right_selection #Attributes .set_attribute_value .attribute_body .values_column .input_section ul li:hover {
+  color: white;
+  background-color: red;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit button,
+html .wrapper .content .splashboard .content_edit .right_edit button {
+  position: static;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit #show,
+html .wrapper .content .splashboard .content_edit .right_edit #show {
+  display: block;
+  position: static;
+  color: white;
+  margin: auto;
+  background-color: red;
+  margin-bottom: 10px;
+}
+
+body .wrapper .content .splashboard .content_edit .right_edit .show,
+html .wrapper .content .splashboard .content_edit .right_edit .show {
+  width: 100%;
+  height: 300px;
+  border: 1px solid grey;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit,
+html .wrapper .content .splashboard .content_edit .left_edit {
+  width: 28%;
+  height: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update {
+  width: 100%;
+  height: 275px;
+  background-color: white;
+  transition: height 300ms ease-out;
+  margin-bottom: 20px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod {
+  border: 1px solid silver;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod .elem_name,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod .elem_name {
+  width: 200px;
+  height: 100%;
+  font-weight: 500;
+  line-height: 50px;
+  padding-left: 5px;
+  color: #313131;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown span,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown span {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid grey;
+  border-right: 2px solid grey;
+  transform: rotateX(0deg);
+  transition: all 200ms linear;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown .open_sub_product,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown .open_sub_product {
+  transition: all 200ms linear;
+  transform: rotateZ(180deg);
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown:hover,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown:hover {
+  cursor: pointer;
+  background-color: #5a5a5a;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown:hover span,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update .elem_header_prod > .dropdown:hover span {
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings {
+  width: 100%;
+  height: calc(100% - 50px);
+  border: 1px solid silver;
+  border-top: 0px solid grey;
+  transition: height 0.2 ease-out;
+  overflow: auto;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype {
+  width: 100%;
+  padding: 10 5px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: warp;
+  overflow: visible;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype p,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype p {
+  padding: 0;
+  margin: 0;
+  width: 180px;
+  height: 30px;
+  font-size: 90%;
+  line-height: 30px;
+  color: #5a5a5a;
+  padding-left: 10px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype input,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype input {
+  height: 35px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype input:focus,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype input:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype input:active,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype input:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype select,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype select {
+  height: 30px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype select:focus,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype select:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype select:active,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype select:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype .Input_title,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype .Input_title {
+  width: 100px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype select,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .input_text_prptotype select {
+  padding-right: 20px;
+  width: 150px;
+  background-color: white;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info {
+  width: 93%;
+  margin: auto;
+  height: 25px;
+  overflow: hidden;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info p,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info p {
+  width: 100%;
+  height: 25px;
+  padding: 1px;
+  margin: 0;
+  color: blue;
+  text-align: center;
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info p:hover,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info p:hover {
+  background-color: #e4e4e4;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area {
+  width: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype {
+  width: 100%;
+  padding: 10 0px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: warp;
+  overflow: visible;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype p,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype p {
+  padding: 0;
+  margin: 0;
+  width: 180px;
+  height: 30px;
+  font-size: 90%;
+  line-height: 30px;
+  color: #5a5a5a;
+  padding-left: 10px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype input,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype input {
+  height: 35px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype input:focus,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype input:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype input:active,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype input:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype select,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype select {
+  height: 30px;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  display: block;
+  width: calc(100% - 230px);
+  border-radius: 5px;
+  border: 1px solid #8b8b8b;
+  font-size: 90%;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype select:focus,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype select:focus {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype select:active,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .add_info .content_area .input_text_prptotype select:active {
+  border: 2px solid #e63030;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem {
+  width: 100%;
+  height: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image .imag_element_holder,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image .imag_element_holder {
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image .imag_element_holder img,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image .imag_element_holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  object-position: center;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image #update_overlay,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image #update_overlay {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -100%;
+  background-color: rgba(26, 26, 26, 0.5);
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.2s ease-in;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image #update_overlay button,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image #update_overlay button {
+  color: white;
+  border-radius: 3px;
+  background-color: rgba(95, 95, 95, 0.8);
+  padding: 5px 15px;
+  border: 1px solid grey;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image #update_overlay button:hover,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image #update_overlay button:hover {
+  background-color: rgba(41, 41, 41, 0.7);
+  color: white;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image .imag_element_holder:hover + #update_overlay,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image .imag_element_holder:hover + #update_overlay {
+  opacity: 1;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image #update_overlay:hover,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .upload_image_elem .product_primary_image #update_overlay:hover {
+  opacity: 1;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li {
+  width: 100%;
+  font-size: 90%;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container {
+  margin: 0;
+  max-width: 50px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
+  user-select: none;
+  border-radius: 3px;
+  margin-right: 5px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container input,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* Show the checkmark when checked */
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container input:checked ~ .checkmark,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container input:checked ~ .checkmark {
+  background-color: #f32121;
+  border: none;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container input:checked ~ .checkmark:after,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container .checkmark,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container .checkmark {
+  position: absolute;
+  border-radius: 3px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: solid 1px grey;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container .checkmark:hover input ~ .checkmark,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container .checkmark:after,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container .checkmark:after,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category .c_container .checkmark:after {
+  left: 7px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category p,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .parent_category p {
+  height: 20px;
+  display: inline-block;
+  width: fit-content;
+  line-height: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 55px;
+  margin-bottom: 3px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container {
+  margin: 0;
+  max-width: 50px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
+  user-select: none;
+  border-radius: 3px;
+  margin-right: 5px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container input,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* Show the checkmark when checked */
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container input:checked ~ .checkmark,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container input:checked ~ .checkmark {
+  background-color: #f32121;
+  border: none;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container input:checked ~ .checkmark:after,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container .checkmark,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container .checkmark {
+  position: absolute;
+  border-radius: 3px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: solid 1px grey;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container .checkmark:hover input ~ .checkmark,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container .checkmark:after,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container .checkmark:after,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category .c_container .checkmark:after {
+  left: 7px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category p,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings ul li .child_category p {
+  height: 20px;
+  display: inline-block;
+  width: fit-content;
+  line-height: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry {
+  margin: auto;
+  width: 98%;
+  height: 50px;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display {
+  position: relative;
+  float: left;
+  width: 180px;
+  height: fit-content;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display input,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display input {
+  display: block;
+  width: 180px;
+  height: 35px;
+  margin-top: 3px;
+  border-radius: 5px;
+  border: solid grey 1px;
+  padding-left: 5px;
+  outline: none;
+  margin-bottom: 5px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display input:focus,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display input:focus {
+  border: solid red 2px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display .tag_disp,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display .tag_disp {
+  position: absolute;
+  width: 100%;
+  max-height: 160px;
+  background-color: white;
+  box-shadow: 0 0 6px grey;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display .tag_disp p,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display .tag_disp p {
+  cursor: pointer;
+  width: 100%;
+  height: 35px;
+  margin: 0;
+  margin: 0px;
+  padding: 5px;
+  padding-left: 10px;
+  font-size: 90%;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display .tag_disp p:hover,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry .search_tag_display .tag_disp p:hover {
+  background-color: red;
+  color: white;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry button,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry button {
+  display: block;
+  float: left;
+  outline: none;
+  width: 70px;
+  height: 35px;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry button:hover,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tag_entry button:hover {
+  background-color: red;
+  color: white;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tad_listing,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tad_listing {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tad_listing p,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tad_listing p {
+  font-size: 85%;
+  padding: 2px 10px 2px 0px;
+  margin: 3px;
+  border: 1px solid #a6a7aa;
+  border-radius: 3px;
+  background-color: #dddddd;
+  color: #3a3a3a;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tad_listing p span,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tad_listing p span {
+  cursor: pointer;
+  padding: 0 5px 0 5px;
+  color: #adadad;
+  font-weight: 500;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tad_listing p span:hover,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .tad_listing p span:hover {
+  color: black;
+  background-color: #c01f1f;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .conf_update,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .conf_update {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .conf_update button,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .conf_update button {
+  width: 80px;
+  height: 40px;
+  color: red;
+  border-radius: 3px;
+  border: solid 1px red;
+}
+
+body .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .conf_update button:hover,
+html .wrapper .content .splashboard .content_edit .left_edit .product_update > .product_settings .conf_update button:hover {
+  background-color: red;
+  color: white;
+}
+
+body .wrapper .content .splashboard .search_cat,
+html .wrapper .content .splashboard .search_cat {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+body .wrapper .content .splashboard .search_cat .elem_wrapper,
+html .wrapper .content .splashboard .search_cat .elem_wrapper {
+  width: fit-content;
+  margin-right: 10px;
+}
+
+body .wrapper .content .splashboard .search_cat .elem_wrapper input,
+html .wrapper .content .splashboard .search_cat .elem_wrapper input {
+  outline: none;
+  border: 1px solid grey;
+  width: 230px;
+  height: 40px;
+  display: block;
+  border-radius: 5px;
+}
+
+body .wrapper .content .splashboard .search_cat .elem_wrapper input:active,
+html .wrapper .content .splashboard .search_cat .elem_wrapper input:active {
+  border: 1px solid #f03b3b;
+}
+
+body .wrapper .content .splashboard .search_cat .elem_wrapper input:focus,
+html .wrapper .content .splashboard .search_cat .elem_wrapper input:focus {
+  border: 2px solid #f03b3b;
+}
+
+body .wrapper .content .splashboard .search_cat .elem_wrapper select,
+html .wrapper .content .splashboard .search_cat .elem_wrapper select {
+  outline: none;
+  border: 1px solid grey;
+  width: 230px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+body .wrapper .content .splashboard .search_cat .elem_wrapper button,
+html .wrapper .content .splashboard .search_cat .elem_wrapper button {
+  outline: none;
+  margin-right: 20px;
+  border: 1px solid #f03b3b;
+  height: 40px;
+  width: fit-content;
+  display: inline-block;
+  border-radius: 5px;
+  font-weight: 500;
+  color: #f03b3b;
+}
+
+body .wrapper .content .splashboard .search_cat .elem_wrapper button:hover,
+html .wrapper .content .splashboard .search_cat .elem_wrapper button:hover {
+  color: white;
+  background-color: #f03b3b;
+}
+
+body .wrapper .content .splashboard #left_cat_description,
+html .wrapper .content .splashboard #left_cat_description {
+  padding: 0 10px;
+  font-size: 90%;
+  float: left;
+  width: 300px;
+}
+
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel {
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel h5,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel h5 {
+  font-size: 110%;
+  margin-bottom: 20px;
+}
+
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel .entry_title,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel .entry_title {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8px;
+  padding-bottom: 1px;
+}
+
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel input,
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel select,
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel textarea,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel input,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel select,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel textarea {
+  width: 100%;
+  height: 40px;
+  display: block;
+  border: none;
+  border: solid 1px grey;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding-left: 5px;
+}
+
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel input:focus,
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel select:focus,
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel textarea:focus,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel input:focus,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel select:focus,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel textarea:focus {
+  border: none;
+  outline: none;
+  border: 2px solid red;
+}
+
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel textarea,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel textarea {
+  width: 100%;
+  height: 150px;
+  display: block;
+  border: none;
+  border: solid 1px grey;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel button,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel button {
+  width: 80px;
+  height: 30px;
+  border: 1px solid #e92828;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  margin: auto;
+  color: #f34d4d;
+  font-weight: 500;
+}
+
+body .wrapper .content .splashboard #left_cat_description .add_item_pannel button:hover,
+html .wrapper .content .splashboard #left_cat_description .add_item_pannel button:hover {
+  background-color: #f14b4b;
+  color: white;
+}
+
+body .wrapper .content .splashboard #right_cat_description,
+html .wrapper .content .splashboard #right_cat_description {
+  float: left;
+  width: calc(100% - 300px);
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl {
+  background-color: white;
+  width: calc(95%);
+  margin: auto;
+  table-layout: fixed;
+  display: block;
+  border: solid #cacaca 1px;
+  font-size: 90%;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead {
+  width: 100%;
+  border-bottom: 2px solid #cacaca;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th {
+  word-wrap: break-word;
+  height: fit-content;
+  border-bottom: none;
+  color: red;
+  text-align: center;
+  font-weight: 500;
+  font-size: 110%;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1),
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 30px;
+  margin-top: 10px;
+  border: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container {
+  margin: 0;
+  max-width: 50px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
+  user-select: none;
+  border-radius: 3px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container input,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* Show the checkmark when checked */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark {
+  background-color: #f32121;
+  border: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container .checkmark {
+  position: absolute;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: solid 1px grey;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container .checkmark:hover input ~ .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr {
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td {
+  word-wrap: break-word;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1),
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) {
+  max-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container {
+  margin: 0;
+  max-width: 50px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
+  user-select: none;
+  border-radius: 3px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container input,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* Show the checkmark when checked */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark {
+  background-color: #f32121;
+  border: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container .checkmark {
+  position: absolute;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: solid 1px grey;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:hover input ~ .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(4),
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(4) {
+  text-align: center;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(5),
+html .wrapper .content .splashboard #right_cat_description > #category_tbl > tbody > tr td:nth-child(5) {
+  text-align: center;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl {
+  background-color: white;
+  margin: auto;
+  font-size: 90%;
+  padding-top: 1px;
+  border: 1px solid #c5c5c5;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead {
+  width: 100%;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th {
+  border-top: 1px solid #c5c5c5;
+  word-wrap: break-word;
+  width: 100%;
+  height: fit-content;
+  color: red;
+  font-weight: 500;
+  font-size: 110%;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1),
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container {
+  margin: 0;
+  max-width: 50px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
+  user-select: none;
+  border-radius: 3px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container input,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* Show the checkmark when checked */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark {
+  background-color: #f32121;
+  border: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container .checkmark {
+  position: absolute;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: solid 1px grey;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container .checkmark:hover input ~ .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > thead > tr th:nth-child(1) .c_container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr {
+  cursor: pointer;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td {
+  word-wrap: break-word;
+  width: 100%;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1),
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container {
+  margin: 0;
+  max-width: 50px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
+  user-select: none;
+  border-radius: 3px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container input,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* Show the checkmark when checked */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark {
+  background-color: #f32121;
+  border: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container .checkmark {
+  position: absolute;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: solid 1px grey;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:hover input ~ .checkmark,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after,
+html .wrapper .content .splashboard #right_cat_description > #tag_tbl > tbody > tr td:nth-child(1) .c_container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+body .wrapper .content .splashboard .add_supplier,
+html .wrapper .content .splashboard .add_supplier {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #b8b8b8;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det,
+html .wrapper .content .splashboard .add_supplier > .reg_det {
+  width: 97%;
+  margin: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 6px grey;
+  margin-bottom: 20px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det h5,
+html .wrapper .content .splashboard .add_supplier > .reg_det h5 {
+  display: block;
+  margin: auto;
+  color: white;
+  font-weight: 700;
+  background-color: #da1d1d;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  padding-left: 40px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .field_holder,
+html .wrapper .content .splashboard .add_supplier > .reg_det .field_holder {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .field_holder p,
+html .wrapper .content .splashboard .add_supplier > .reg_det .field_holder p {
+  line-height: 35px;
+  display: inline-block;
+  width: 300px;
+  padding-left: 30px;
+  font-weight: 500;
+  color: #626262;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .field_holder .value,
+html .wrapper .content .splashboard .add_supplier > .reg_det .field_holder .value {
+  line-height: 35px;
+  display: inline-block;
+  min-width: 300px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .field_holder input,
+html .wrapper .content .splashboard .add_supplier > .reg_det .field_holder input {
+  display: inline-block;
+  height: 100%;
+  min-width: 600px;
+  border-radius: 5px;
+  border: 1px solid #9c9c9c;
+  padding-left: 5px;
+  color: #626262;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .field_holder input:focus,
+html .wrapper .content .splashboard .add_supplier > .reg_det .field_holder input:focus {
+  border: 2px solid #fa7373;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .field_holder select,
+html .wrapper .content .splashboard .add_supplier > .reg_det .field_holder select {
+  display: inline-block;
+  height: 100%;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #9c9c9c;
+  padding-left: 5px;
+  color: #626262;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .field_holder select:focus,
+html .wrapper .content .splashboard .add_supplier > .reg_det .field_holder select:focus {
+  border: 2px solid #fa7373;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit,
+html .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div,
+html .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div {
+  width: 430px;
+  height: 90%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 6px grey;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div h5,
+html .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div h5 {
+  font-size: 120%;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-weight: 500;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div .field_holder,
+html .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div .field_holder {
+  width: 100%;
+  height: 40px;
+  padding-right: 10px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div .field_holder p,
+html .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div .field_holder p {
+  width: 120px;
+  padding: 0;
+  text-align: center;
+  font-size: 90%;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div .field_holder input,
+html .wrapper .content .splashboard .add_supplier > .reg_det .company_profile_edit > div .field_holder input {
+  min-width: 250px;
+  height: 35px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note {
+  display: flex;
+  width: 100%;
+  padding-bottom: 10px;
+  height: fit-content;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note p,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note p {
+  width: 200px;
+  margin-left: 10px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note textarea,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note textarea {
+  outline: none;
+  min-width: 700px;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 90%;
+  min-height: 40px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note textarea:focus,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note textarea:focus {
+  border: solid red 2px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log {
+  width: 600px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_add_image,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_add_image {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_add_image input,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_add_image input {
+  display: none;
+  outline: none;
+  box-shadow: none !important;
+  border: 1px solid #ccc !important;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_add_image input:focus,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_add_image input:focus {
+  display: none;
+  outline: none;
+  box-shadow: none !important;
+  border: 1px solid #ccc !important;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_display_image,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_display_image {
+  width: calc(100% - 300px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_display_image .elem_vendor_image,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_display_image .elem_vendor_image {
+  margin: auto;
+  max-width: 290px;
+  max-height: 290px;
+  background-color: white;
+  border: 1px solid grey;
+}
+
+body .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_display_image .elem_vendor_image img,
+html .wrapper .content .splashboard .add_supplier > .reg_det > .field_holder.note .comp_log > .elem_display_image .elem_vendor_image img {
+  display: block;
+  margin: auto;
+  max-height: 80%;
+  max-width: 80%;
+  object-position: center;
+  object-fit: scale-down;
+}
+
+body .wrapper .content .splashboard .add_supplier > .Submition,
+html .wrapper .content .splashboard .add_supplier > .Submition {
+  position: relative;
+  top: 0;
+  margin: auto;
+  width: 150px;
+  height: 40px;
+  background-color: #da1d1d;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 0 grey;
+  transition: all 200ms ease-in;
+}
+
+body .wrapper .content .splashboard .add_supplier > .Submition button,
+html .wrapper .content .splashboard .add_supplier > .Submition button {
+  font-weight: 500;
+  color: white;
+  position: static;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+body .wrapper .content .splashboard .add_supplier > .Submition:hover,
+html .wrapper .content .splashboard .add_supplier > .Submition:hover {
+  transition: all 200ms ease-in;
+  top: -3px;
+  box-shadow: 0 0 8px #666666;
+}
+
+body .wrapper .content .mainactivities, body .wrapper .content .mainactivities2, body .wrapper .content .mainactivities3,
+html .wrapper .content .mainactivities,
+html .wrapper .content .mainactivities2,
+html .wrapper .content .mainactivities3 {
+  padding-bottom: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #b8b8b8;
+  float: left;
+}
+
+body .wrapper .content .mainactivities .cardtitle, body .wrapper .content .mainactivities2 .cardtitle, body .wrapper .content .mainactivities3 .cardtitle,
+html .wrapper .content .mainactivities .cardtitle,
+html .wrapper .content .mainactivities2 .cardtitle,
+html .wrapper .content .mainactivities3 .cardtitle {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #dedede;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics, body .wrapper .content .mainactivities2 .mainactivitieStatistics, body .wrapper .content .mainactivities3 .mainactivitieStatistics,
+html .wrapper .content .mainactivities .mainactivitieStatistics,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics {
+  width: 97%;
+  margin: auto;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard, body .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard, body .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard,
+html .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 5px;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard .desc, body .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard .desc, body .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard .desc,
+html .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard .desc,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard .desc,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard .desc {
+  float: left;
+  width: 200px;
+  height: 100%;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard .desc .descname, body .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard .desc .descname, body .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard .desc .descname,
+html .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard .desc .descname,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard .desc .descname,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard .desc .descname {
+  padding-left: 10px;
+  font-size: 120%;
+  font-weight: 600;
+  color: #3bb3e3;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard .desc .desctime, body .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard .desc .desctime, body .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard .desc .desctime,
+html .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard .desc .desctime,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard .desc .desctime,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard .desc .desctime {
+  padding-left: 10px;
+  color: grey;
+  font-size: 90%;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard .timeDiv, body .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard .timeDiv, body .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard .timeDiv,
+html .wrapper .content .mainactivities .mainactivitieStatistics .OnlinevistorsDashboard .timeDiv,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .OnlinevistorsDashboard .timeDiv,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .OnlinevistorsDashboard .timeDiv {
+  float: left;
+  width: calc(100% - 200px);
+  height: 100%;
+  text-align: center;
+  line-height: 80px;
+  font-weight: 600;
+  color: grey;
+  font-size: 110%;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities, body .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities, body .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities,
+html .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities {
+  width: 99%;
+  margin: auto;
+  margin: 0;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities > p, body .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities > p, body .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities > p,
+html .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities > p,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities > p,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities > p {
+  width: 100%;
+  height: 30px;
+  color: white;
+  background-color: #da1d1d;
+  text-align: center;
+  font-weight: 600;
+  margin: 2px;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities .lister .listed, body .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities .lister .listed, body .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities .lister .listed,
+html .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities .lister .listed,
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities .lister .listed,
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities .lister .listed {
+  width: 97%;
+  height: 40px;
+  border: 1px solid #c2c2c2;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0;
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(1), body .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(1), body .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(1),
+html .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(1),
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(1),
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(1) {
+  width: auto;
+  float: left;
+  padding-left: 10px;
+  line-height: 40px;
+  color: var(--main-blue);
+}
+
+body .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(2), body .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(2), body .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(2),
+html .wrapper .content .mainactivities .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(2),
+html .wrapper .content .mainactivities2 .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(2),
+html .wrapper .content .mainactivities3 .mainactivitieStatistics .PendingActivities .lister .listed > div:nth-child(2) {
+  width: auto;
+  float: right;
+  padding-right: 20px;
+  line-height: 40px;
+  font-weight: 600;
+  font-size: 110%;
+  color: grey;
+}
+
+body .wrapper .content .mainactivities2, body .wrapper .content .mainactivities3,
+html .wrapper .content .mainactivities2,
+html .wrapper .content .mainactivities3 {
+  width: calc(100% - 300px - 10px);
+  float: left;
+}
+
+body .wrapper .content .mainactivities2 .statNumbers, body .wrapper .content .mainactivities3 .statNumbers,
+html .wrapper .content .mainactivities2 .statNumbers,
+html .wrapper .content .mainactivities3 .statNumbers {
+  width: 95%;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+body .wrapper .content .mainactivities2 .statNumbers .statbox, body .wrapper .content .mainactivities3 .statNumbers .statbox,
+html .wrapper .content .mainactivities2 .statNumbers .statbox,
+html .wrapper .content .mainactivities3 .statNumbers .statbox {
+  width: 25%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dedede;
+  float: left;
+}
+
+body .wrapper .content .mainactivities2 .statNumbers .statbox p, body .wrapper .content .mainactivities3 .statNumbers .statbox p,
+html .wrapper .content .mainactivities2 .statNumbers .statbox p,
+html .wrapper .content .mainactivities3 .statNumbers .statbox p {
+  text-align: center;
+}
+
+body .wrapper .content .mainactivities2 .statNumbers .statbox p:nth-child(2), body .wrapper .content .mainactivities3 .statNumbers .statbox p:nth-child(2),
+html .wrapper .content .mainactivities2 .statNumbers .statbox p:nth-child(2),
+html .wrapper .content .mainactivities3 .statNumbers .statbox p:nth-child(2) {
+  font-size: 110%;
+  color: grey;
+  font-weight: 600;
+}
+
+body .wrapper .content .mainactivities2 .statNumbers .statbox:hover, body .wrapper .content .mainactivities3 .statNumbers .statbox:hover,
+html .wrapper .content .mainactivities2 .statNumbers .statbox:hover,
+html .wrapper .content .mainactivities3 .statNumbers .statbox:hover {
+  cursor: pointer;
+  background-color: #da1d1d;
+  color: white;
+}
+
+body .wrapper .content .mainactivities2 .statNumbers .statbox:hover p:nth-child(2), body .wrapper .content .mainactivities3 .statNumbers .statbox:hover p:nth-child(2),
+html .wrapper .content .mainactivities2 .statNumbers .statbox:hover p:nth-child(2),
+html .wrapper .content .mainactivities3 .statNumbers .statbox:hover p:nth-child(2) {
+  background-color: #da1d1d;
+  color: white;
+}
+
+body .wrapper .content .mainactivities2 .chart1, body .wrapper .content .mainactivities3 .chart1,
+html .wrapper .content .mainactivities2 .chart1,
+html .wrapper .content .mainactivities3 .chart1 {
+  width: 95%;
+  margin: auto;
+  border-radius: 8px;
+}
+
+body .wrapper .content .mainactivities3,
+html .wrapper .content .mainactivities3 {
+  float: left;
+}
+
+body .wrapper .content .mainactivities3 .salesListdash,
+html .wrapper .content .mainactivities3 .salesListdash {
+  width: 95%;
+  height: auto;
+  margin: auto;
+}
+
+body .wrapper .content .filter_pannel,
+html .wrapper .content .filter_pannel {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body .wrapper .content .filter_pannel .top_pannel,
+html .wrapper .content .filter_pannel .top_pannel {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+body .wrapper .content .filter_pannel .top_pannel ul,
+html .wrapper .content .filter_pannel .top_pannel ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+}
+
+body .wrapper .content .filter_pannel .top_pannel ul li,
+html .wrapper .content .filter_pannel .top_pannel ul li {
+  display: inline-block;
+  color: red;
+  height: 17px;
+  line-height: 17px;
+  border-right: solid grey 2px;
+}
+
+body .wrapper .content .filter_pannel .top_pannel ul li button,
+html .wrapper .content .filter_pannel .top_pannel ul li button {
+  font-size: 90%;
+  height: 100%;
+  color: #dd4343;
+}
+
+body .wrapper .content .filter_pannel .top_pannel ul li button span,
+html .wrapper .content .filter_pannel .top_pannel ul li button span {
+  color: grey;
+}
+
+body .wrapper .content .filter_pannel .top_pannel ul li button:focus,
+html .wrapper .content .filter_pannel .top_pannel ul li button:focus {
+  color: black;
+  outline: none;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel,
+html .wrapper .content .filter_pannel .lower_pannel {
+  width: 100%;
+  height: 40px;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel ul,
+html .wrapper .content .filter_pannel .lower_pannel ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel ul li,
+html .wrapper .content .filter_pannel .lower_pannel ul li {
+  display: inline-block;
+  margin-top: 5px;
+  color: red;
+  height: 30px;
+  line-height: 17px;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel ul li select,
+html .wrapper .content .filter_pannel .lower_pannel ul li select {
+  margin: 0;
+  padding: 0;
+  width: 170px;
+  height: 30px;
+  font-size: 90%;
+  border-radius: 3px;
+  outline: none;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel ul li select:focus,
+html .wrapper .content .filter_pannel .lower_pannel ul li select:focus {
+  border: 2px solid #fa7373;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel ul li input,
+html .wrapper .content .filter_pannel .lower_pannel ul li input {
+  margin-left: 40px;
+  width: 270px;
+  height: 30px;
+  border: solid grey 1px;
+  border-radius: 3px;
+  outline: none;
+  padding-left: 8px;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel ul li input:focus,
+html .wrapper .content .filter_pannel .lower_pannel ul li input:focus {
+  border: 2px solid #fa7373;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel ul li .search_results,
+html .wrapper .content .filter_pannel .lower_pannel ul li .search_results {
+  position: relative;
+  width: 270px;
+  margin-left: 40px;
+  margin-top: 3px;
+  height: 300px;
+  background-color: red;
+}
+
+body input[type='search'],
+html input[type='search'] {
+  width: 300px;
+  height: 32px;
+  border-radius: 16px;
+  border: 1px solid #cccccc;
+  padding-left: 12px;
+  padding-right: 33px;
+  font-style: italic;
+}
+
+body button,
+html button {
+  background-color: transparent;
+  border: none;
+}
+
+body input[type='search']:focus,
+html input[type='search']:focus {
+  border: 2px solid #f59393;
+  outline: 0;
+}
+
+.select_file {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select_file input {
+  display: block;
+}
+
+.select_file input[type="submit"] {
+  border: none;
+  background-color: red;
+  width: 80px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.select_file input[type="file"] {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.select_file .progress_bar {
+  display: none;
+  width: 250px;
+  border-radius: 3px;
+  border: 1px solid #c5c5c5;
+  height: 26px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.select_file .progress_bar .progress {
+  width: 100%;
+  height: 25px;
+}
+/*# sourceMappingURL=main.css.map */

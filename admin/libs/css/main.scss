@@ -1,0 +1,2409 @@
+@import '../config';
+//
+//Global
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .app_overlay {
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        display: none;
+        & .console {
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #252525, $alpha: 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & .visual {
+                width: 90%;
+                height: 90%;
+                background-color: white;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                & .account_notifications {
+                    width: 60%;
+                    height: 98%;
+                    border-radius: 5px;
+                    border: 1px solid rgb(190, 190, 190);
+                }
+                & .system_notifications {
+                    width: 35%;
+                    height: 98%;
+                    overflow-x: auto;
+                    font-size: 78%;
+                    & .system_error {
+                        width: 100%;
+                        background-color: rgb(233, 233, 233);
+                        border: 1px solid rgb(211, 211, 211);
+                        border-left: 5px solid rgb(233, 48, 48);
+                        margin-bottom: 3px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding-right: 5px;
+                        p {
+                            padding: 5px;
+                            margin: 0px;
+                        }
+                        &>div {
+                            width: 16px;
+                            height: 16px;
+                            color: rgb(80, 80, 80);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0;
+                            margin: 0;
+                            &:hover {
+                                cursor: pointer;
+                                background-color: rgb(156, 156, 156);
+                                color: black;
+                            }
+                        }
+                    }
+                    & .system_alert {
+                        width: 100%;
+                        background-color: rgb(233, 233, 233);
+                        border: 1px solid rgb(211, 211, 211);
+                        border-left: 5px solid rgb(233, 107, 48);
+                        margin-bottom: 3px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding-right: 5px;
+                        p {
+                            padding: 5px;
+                            margin: 0px;
+                        }
+                        &>div {
+                            width: 16px;
+                            height: 16px;
+                            color: rgb(80, 80, 80);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0;
+                            margin: 0;
+                            &:hover {
+                                cursor: pointer;
+                                background-color: rgb(156, 156, 156);
+                                color: black;
+                            }
+                        }
+                    }
+                    & .system_update {
+                        width: 100%;
+                        background-color: rgb(233, 233, 233);
+                        border: 1px solid rgb(211, 211, 211);
+                        border-left: 5px solid rgb(45, 233, 45);
+                        margin-bottom: 3px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding-right: 5px;
+                        p {
+                            padding: 5px;
+                            margin: 0px;
+                        }
+                        &>div {
+                            width: 16px;
+                            height: 16px;
+                            color: rgb(80, 80, 80);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0;
+                            margin: 0;
+                            &:hover {
+                                cursor: pointer;
+                                background-color: rgb(156, 156, 156);
+                                color: black;
+                            }
+                        }
+                    }
+                }
+            }
+            & #visual {
+                background-color: white;
+            }
+        }
+    }
+    nav {
+        width: 100%;
+        height: 55px;
+        box-shadow: 1px 1px 5px grey;
+        & .logo_panel {
+            float: left;
+            width: 200px;
+            margin-left: 20px;
+            padding-top: 3px;
+            padding-left: 3px;
+            height: 100%;
+        }
+        & .search_nav {
+            float: left;
+            width: 400px;
+            height: 100%;
+            padding-top: 10px;
+            padding-left: 10px;
+            & button {
+                position: relative;
+                top: -3px;
+                left: -43px;
+                background-color: transparent;
+                border: none;
+            }
+        }
+        & .accountdrpdwn {
+            position: relative;
+            margin-right: 80px;
+            margin-top: 2px;
+            width: 50px;
+            height: 50px;
+            float: right;
+            & .dropper {
+                display: none;
+                left: -80px;
+                position: absolute;
+                width: 200px;
+                z-index: 10;
+                padding-top: 5px;
+                & .linkwrapper {
+                    width: 100%;
+                    height: 250px;
+                    background-color: white;
+                    box-shadow: 1px 1px 5px grey;
+                    border: 1px solid rgb(161, 161, 161);
+                }
+                & .dpic_holder {
+                    width: 100px;
+                    height: 100px;
+                    margin: auto;
+                }
+                & p {
+                    text-align: center;
+                    padding-bottom: 0px;
+                    margin: 0;
+                }
+                & .Edit {
+                    width: 110px;
+                    height: 30px;
+                    margin: auto;
+                    text-align: center;
+                    color: rgb(251, 97, 97);
+                    border: 2px solid rgb(251, 97, 97);
+                    margin-bottom: 10px;
+                    &:hover {
+                        background-color: rgb(251, 97, 97);
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .wrapper {
+        width: 100%;
+        height: calc(100% - 55px);
+        background-color: #eff1f2;
+        & .navi {
+            width: 200px;
+            height: 100%;
+            background-color: rgb(36, 38, 41);
+            float: left;
+            transition: width 800ms;
+            overflow-y: scroll;
+            & .navi_holder {
+                width: 100%;
+                height: 40px;
+                overflow: hidden;
+                & .hideorshow {
+                    padding-top: 5px;
+                    width: 100%;
+                    height: 40px;
+                    & img {
+                        float: right;
+                        margin-right: 5px;
+                    }
+                    &>#shownav {
+                        display: none;
+                    }
+                }
+            }
+            & .dashboardbtn {
+                width: 100%;
+                height: 40px;
+                padding: 8px 3px 0 5px;
+                overflow: hidden;
+                transition: all 200ms ease-in;
+                & img {
+                    padding-left: 5px;
+                    float: left;
+                    font-size: 90%;
+                }
+                & p {
+                    padding-left: 5px;
+                    float: left;
+                    color: rgb(209, 209, 209);
+                    font-size: 90%;
+                }
+                &:hover {
+                    transition: all 200ms ease-in;
+                    background-color: rgb(18, 18, 18);
+                    cursor: pointer;
+                    border-left: 5px solid rgb(245, 37, 37);
+                }
+            }
+            & .nav_splitter {
+                margin-top: 20px;
+                width: 100%;
+                height: 40px;
+                padding-left: 20px;
+                font-weight: 600;
+                font-size: 110%;
+                color: rgb(227, 227, 227);
+            }
+            & .cardBtn {
+                & .presssidedbtn {
+                    width: 100%;
+                    height: 40px;
+                    padding: 8px 3px 0 5px;
+                    overflow: hidden;
+                    transition: all 200ms ease-in;
+                    & img {
+                        padding-left: 5px;
+                        float: left;
+                        color: rgb(209, 209, 209);
+                        font-size: 90%;
+                    }
+                    & p {
+                        padding-left: 5px;
+                        float: left;
+                        color: rgb(209, 209, 209);
+                        font-size: 90%;
+                    }
+                    &:hover {
+                        background-color: rgb(18, 18, 18);
+                        cursor: pointer;
+                        border-left: 5px solid rgb(245, 37, 37);
+                        transition: all 200ms ease-in;
+                    }
+                }
+            }
+            & .active_btn {
+                transition: all 200ms ease-in;
+                background-color: rgb(18, 18, 18);
+                cursor: pointer;
+                border-left: 5px solid rgb(245, 37, 37);
+            }
+        }
+        & .content {
+            width: calc(100% - 200px);
+            height: 100%;
+            float: left;
+            transition: width 800ms;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: content;
+            //dashboard
+            & .head_panel {
+                width: 100%;
+                height: 60px;
+                border-bottom: 1px solid #d6d6d6;
+                background-color: white;
+                margin-bottom: 13px;
+                &>.bread_crums {
+                    padding-left: 5px;
+                    color: grey;
+                    width: 100%;
+                    height: 18px;
+                    font-size: 90%;
+                }
+                &>.subnavigator {
+                    width: 100%;
+                    height: calc(100% - 18px);
+                    &>.current {
+                        float: left;
+                        width: 200px;
+                        height: calc(100%);
+                        & p {
+                            padding: 5px;
+                            padding-left: 20px;
+                            font-size: 130%;
+                            font-weight: 600;
+                            color: grey;
+                        }
+                    }
+                    & .menucontrols {
+                        width: 500px;
+                        height: 100%;
+                        float: right;
+                        &>div {
+                            float: right;
+                            margin-right: 20px;
+                        }
+                        &>.addNew {
+                            position: relative;
+                            top: 2px;
+                            left: 2px;
+                            width: 140px;
+                            height: 90%;
+                            background-color: $system-red;
+                            border-radius: 3px;
+                            cursor: pointer;
+                            &:hover {
+                                box-shadow: 0 0 5px 2px rgb(243, 139, 139);
+                            }
+                        }
+                    }
+                }
+            }
+            & .sub_menucontrol {
+                clear: both;
+                width: 100%;
+                height: 60px;
+                background-color: white;
+                margin-bottom: 10px;
+                & ul {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    background-color: white;
+                    & li {
+                        width: 120px;
+                        height: 40px;
+                        margin: 0 10px;
+                        line-height: 38px;
+                        text-align: center;
+                        border-radius: 5px;
+                        & button {
+                            outline: none;
+                            width: 100%;
+                            height: 100%;
+                            font-weight: 600;
+                            color: white;
+                            border: 1px solid rgb(238, 46, 46);
+                            border-radius: 5px;
+                            color: rgb(238, 46, 46);
+                            &:hover {
+                                background-color: rgb(238, 46, 46);
+                                color: white;
+                            }
+                            &:active {
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+            & .calnder_set {
+                width: 97%;
+                height: 90px;
+                background-color: white;
+                margin: auto;
+                border-radius: 5px;
+                border: 1px solid #b8b8b8;
+                padding-top: 10px;
+                padding-left: 30px;
+                margin-bottom: 30px;
+                & .sub2nava {
+                    float: left;
+                    margin-top: 10px;
+                    width: 220px;
+                    height: 40px;
+                    border-radius: 5px;
+                    padding: 0;
+                    &>ul {
+                        margin: 0;
+                        padding: 0;
+                        &>li {
+                            margin: 0;
+                            padding: 0;
+                            display: inline-block;
+                            width: 70px;
+                            height: 40px;
+                            line-height: 35px;
+                            text-align: center;
+                            box-sizing: content-box;
+                            border: 1px solid #bdbdbd;
+                            &:hover {
+                                background-color: #007bff;
+                                color: white;
+                                border: 1px solid #2a8cf5;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                & .input_calender {
+                    margin-right: 5px;
+                    margin-top: 10px;
+                    float: right;
+                    width: 600px;
+                    height: 40px;
+                    & .float_left_calender {
+                        font-style: italic;
+                        float: left;
+                        padding: 1px;
+                    }
+                    & .float_right_calender {
+                        font-style: italic;
+                        float: right;
+                        padding: 1px;
+                    }
+                }
+            }
+            & .splashboard {
+                width: 97%;
+                padding-bottom: 20px;
+                margin: auto;
+                overflow: hidden;
+                & .mainactivities4 {
+                    @include maniactivity;
+                    width: calc(100%);
+                    height: fit-content;
+                    & .salesListdash2 {
+                        &>table {
+                            font-size: 90%;
+                            // min-width: 100%;
+                            // table-layout: fixed;
+                            &>thead {
+                                &>tr {
+                                    th {
+                                        word-wrap: break-word;
+                                    }
+                                }
+                            }
+                            &>tbody {
+                                &>tr {
+                                    cursor: pointer;
+                                    td {
+                                        word-wrap: break-word;
+                                    }
+                                }
+                            }
+                        }
+                        &>#products_tbl {
+                            width: 100%;
+                            // table-layout: fixed;
+                            &>thead {
+                                width: 100%;
+                                &>tr {
+                                    th {
+                                        word-wrap: break-word;
+                                        height: fit-content;
+                                        border-bottom: none;
+                                    }
+                                    th:nth-child(1) {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        margin: 0;
+                                        @include custom_checkbox;
+                                        max-width: 50px;
+                                    }
+                                    th:nth-child(2) {
+                                        width: 10px;
+                                        & p {
+                                            text-align: center;
+                                        }
+                                    }
+                                }
+                            }
+                            &>tbody {
+                                width: 100%;
+                                &>tr {
+                                    cursor: pointer;
+                                    td {
+                                        word-wrap: break-word;
+                                    }
+                                    td:nth-child(1) {
+                                        max-width: 50px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        @include custom_checkbox;
+                                    }
+                                    td:nth-child(2) {
+                                        width: 10px;
+                                        & img {
+                                            // max-width: 60px;
+                                            max-height: 60px;
+                                            object-fit: scale-down;
+                                            display: block;
+                                            margin: auto;
+                                        }
+                                    }
+                                    td:nth-child(3) {
+                                        max-width: 300px;
+                                    }
+                                    td:nth-child(4) {
+                                        width: 120px;
+                                    }
+                                    td:nth-child(7) {
+                                        max-width: 200px;
+                                    }
+                                }
+                            }
+                        }
+                        & .noVendors {
+                            width: 100%;
+                            height: 300px;
+                            padding-top: 15px;
+                            & img {
+                                display: block;
+                                width: 100px;
+                                margin: auto;
+                            }
+                            & p {
+                                text-align: center;
+                                font-size: 150%;
+                                font-weight: 500;
+                                color: rgb(85, 85, 85);
+                            }
+                            & button {
+                                background-color: rgb(224, 44, 44);
+                                width: 90px;
+                                height: 50px;
+                                display: block;
+                                margin: auto;
+                                padding: 0 5px;
+                                color: white;
+                                font-weight: 500;
+                                border-radius: 5px;
+                                outline: none;
+                                &:hover {
+                                    background-color: rgb(175, 18, 18);
+                                }
+                            }
+                        }
+                        & .noProducts {
+                            width: 100%;
+                            height: 300px;
+                            padding-top: 15px;
+                            & img {
+                                display: block;
+                                width: 100px;
+                                margin: auto;
+                            }
+                            & p {
+                                text-align: center;
+                                font-size: 150%;
+                                font-weight: 500;
+                                color: rgb(85, 85, 85);
+                            }
+                            & button {
+                                background-color: rgb(224, 44, 44);
+                                width: 90px;
+                                height: 50px;
+                                display: block;
+                                margin: auto;
+                                padding: 0 5px;
+                                color: white;
+                                font-weight: 500;
+                                border-radius: 5px;
+                                outline: none;
+                                &:hover {
+                                    background-color: rgb(175, 18, 18);
+                                }
+                            }
+                        }
+                    }
+                    & .cardtitle {
+                        width: 95%;
+                        margin: auto;
+                        margin-bottom: 2px;
+                        border-bottom: 1px solid #dedede;
+                        font-family: 'Open Sans', sans-serif;
+                        text-align: center;
+                    }
+                    & .spanner {
+                        width: 100%;
+                        height: 10px;
+                        background-color: green;
+                    }
+                }
+                & .addItem {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    width: 100%;
+                    background-color: white;
+                    border-radius: 5px;
+                    border: 1px solid #b8b8b8;
+                    &>.reg_det {
+                        width: 97%;
+                        margin: auto;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        box-shadow: 0 0 6px grey;
+                        margin-bottom: 20px;
+                        & h5 {
+                            display: block;
+                            margin: auto;
+                            color: white;
+                            font-weight: 700;
+                            background-color: $system-red;
+                            margin-bottom: 10px;
+                            padding: 10px 0;
+                            padding-left: 40px;
+                        }
+                        &>.field_holder {
+                            width: 100%;
+                            height: 35px;
+                            margin-bottom: 10px;
+                            & p {
+                                line-height: 35px;
+                                display: inline-block;
+                                width: 300px;
+                                padding-left: 30px;
+                                font-weight: 500;
+                                color: rgb(98, 98, 98);
+                            }
+                            & .value {
+                                line-height: 35px;
+                                display: inline-block;
+                                width: 300px;
+                                font-weight: 400;
+                                padding-left: 5px;
+                            }
+                            & input {
+                                display: inline-block;
+                                height: 100%;
+                                width: 300px;
+                                border-radius: 5px;
+                                border: 1px solid rgb(156, 156, 156);
+                                padding-left: 5px;
+                                color: rgb(98, 98, 98);
+                                outline: none;
+                                &:focus {
+                                    border: 2px solid rgb(250, 115, 115);
+                                }
+                            }
+                            & select {
+                                display: inline-block;
+                                height: 100%;
+                                width: 300px;
+                                border-radius: 5px;
+                                border: 1px solid rgb(156, 156, 156);
+                                padding-left: 5px;
+                                color: rgb(98, 98, 98);
+                                outline: none;
+                                &:focus {
+                                    border: 2px solid rgb(250, 115, 115);
+                                }
+                            }
+                            & button {
+                                margin-left: 25px;
+                                display: inline-block;
+                                display: none;
+                                outline: none;
+                            }
+                            & .showPassword {
+                                height: 30px;
+                                overflow: hidden;
+                                display: inline-block;
+                                & img {
+                                    height: 30px;
+                                    width: auto;
+                                }
+                            }
+                            & .userPassword {
+                                height: 30px;
+                                overflow: hidden;
+                                & img {
+                                    height: 30px;
+                                    width: auto;
+                                }
+                            }
+                        }
+                    }
+                    &>.Submition {
+                        position: relative;
+                        top: 0;
+                        margin: auto;
+                        width: 150px;
+                        height: 40px;
+                        background-color: $system-red;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        box-shadow: 0 0 0 grey;
+                        transition: all 200ms ease-in;
+                        & button {
+                            font-weight: 500;
+                            color: white;
+                            position: static;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            outline: none;
+                        }
+                        &:hover {
+                            transition: all 200ms ease-in;
+                            top: -3px;
+                            box-shadow: 0 0 8px rgb(102, 102, 102);
+                        }
+                    }
+                }
+                & .action_description {
+                    width: 100%;
+                    height: 55px;
+                    font-size: 150%;
+                }
+                & .content_edit {
+                    width: 100%;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-around;
+                    flex-direction: row;
+                    & .right_edit {
+                        width: 78%;
+                        height: 100%;
+                        & .product_name_elem {
+                            width: 97%;
+                            height: 55px;
+                            margin-bottom: 10px;
+                            & input {
+                                margin: auto;
+                                display: block;
+                                width: 100%;
+                                height: 50px;
+                                border: 1px solid rgb(190, 190, 190);
+                                border-radius: 4px;
+                                margin: auto;
+                                font-size: 130%;
+                                padding-left: 10px;
+                                &:focus {
+                                    outline: none;
+                                    border: solid red 2px;
+                                }
+                            }
+                        }
+                        & .product_short_description {
+                            width: 97%;
+                            height: 450px;
+                            margin-bottom: 20px;
+                            background-color: white;
+                            transition: height 500ms ease-out;
+                            overflow: hidden;
+                            padding-bottom: 10px;
+                            border-bottom: 1px solid rgb(182, 182, 182);
+                            & .elem_header_prod {
+                                border: 1px solid rgb(192, 192, 192);
+                                @include control_head;
+                                & .elem_name {
+                                    width: 200px;
+                                    height: 100%;
+                                    font-weight: 500;
+                                    line-height: 50px;
+                                    padding-left: 5px;
+                                    color: rgb(49, 49, 49);
+                                }
+                                &>.dropdown {
+                                    @include dropdwn;
+                                    &:hover {
+                                        cursor: pointer;
+                                        background-color: rgb(90, 90, 90);
+                                        span {
+                                            border-top: 2px solid rgb(255, 255, 255);
+                                            border-right: 2px solid rgb(255, 255, 255)
+                                        }
+                                    }
+                                }
+                            }
+                            & #editor {
+                                width: 100%;
+                                height: calc(100% - 100px);
+                                border: 1px solid rgb(192, 192, 192);
+                                border-top: 0px solid grey;
+                                overflow: hidden;
+                            }
+                            & #editor2 {
+                                width: 100%;
+                                height: calc(100% - 100px);
+                                border: 1px solid rgb(192, 192, 192);
+                                border-top: 0px solid grey;
+                                overflow: hidden;
+                            }
+                        }
+                        & .SKU_data {
+                            width: 97%;
+                            height: fit-content;
+                            background-color: rgb(255, 255, 255);
+                            transition: height 500ms ease-out;
+                            margin-bottom: 20px;
+                            & .elem_header_prod {
+                                border: 1px solid rgb(182, 182, 182);
+                                @include control_head;
+                                & .elem_name {
+                                    width: 200px;
+                                    height: 100%;
+                                    font-weight: 500;
+                                    line-height: 50px;
+                                    padding-left: 5px;
+                                    color: rgb(49, 49, 49);
+                                }
+                                & .prod_type {
+                                    height: 100%;
+                                    width: 200px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    & select {
+                                        width: 200px;
+                                        height: 40px;
+                                        border-radius: 5px;
+                                        border: 1px solid #7e8993;
+                                        outline: none;
+                                        &>optgroup {
+                                            padding-top: 3px;
+                                            color: #fc4747;
+                                            font-weight: 500;
+                                        }
+                                        & option {
+                                            width: 200px;
+                                        }
+                                    }
+                                }
+                                & .sale_location {
+                                    @extend .prod_type;
+                                }
+                                &>.dropdown {
+                                    @include dropdwn;
+                                    &:hover {
+                                        cursor: pointer;
+                                        background-color: rgb(90, 90, 90);
+                                        span {
+                                            border-top: 2px solid rgb(253, 253, 253);
+                                            border-right: 2px solid rgb(255, 255, 255)
+                                        }
+                                    }
+                                }
+                            }
+                            & .sku_panel {
+                                width: 100%;
+                                border: 1px solid rgb(192, 192, 192);
+                                border-top: 0px solid grey;
+                                display: flex;
+                                align-items: flex-start;
+                                justify-content: center;
+                                overflow: hidden;
+                                & .left_selection {
+                                    height: 400px;
+                                    width: 20%;
+                                    & ul {
+                                        width: 100%;
+                                        list-style: none;
+                                        margin: 0;
+                                        padding: 0;
+                                        & ul {
+                                            width: calc(100% - 2px);
+                                            height: 40px;
+                                            padding-left: 10px;
+                                            line-height: 40px;
+                                            color: rgb(214, 52, 52);
+                                            font-weight: 400;
+                                            cursor: pointer;
+                                            border: 1px rgb(236, 236, 236) solid;
+                                            &:hover {
+                                                color: rgb(90, 90, 90);
+                                            }
+                                        }
+                                        & .active {
+                                            color: rgb(90, 90, 90);
+                                            background-color: #ebebeb;
+                                        }
+                                    }
+                                }
+                                & .right_selection {
+                                    height: 100%;
+                                    width: 80%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    & .sku_btn_nav {
+                                        background-color: red;
+                                        width: 100%;
+                                        height: 100%;
+                                        background-color: white;
+                                        display: none;
+                                        & .input_text_prptotype {
+                                            width: 100%;
+                                            position: relative;
+                                            padding: 10 0px;
+                                            flex-wrap: wrap;
+                                            overflow: visible;
+                                            @include text_input_prototype_1;
+                                            & .vendor_sadgestion {
+                                                overflow: hidden;
+                                                display: none;
+                                                border-radius: 3px;
+                                                z-index: 10;
+                                                right: 2%;
+                                                top: 41px;
+                                                position: absolute;
+                                                width: calc(100% - 229px);
+                                                box-shadow: 0 0 6px grey;
+                                                & ul {
+                                                    cursor: pointer;
+                                                    width: 100%;
+                                                    margin: 0;
+                                                    padding: 0;
+                                                    list-style: none;
+                                                    background-color: white;
+                                                    & li {
+                                                        width: 100%;
+                                                        padding: 5px;
+                                                        &:hover {
+                                                            background-color: red;
+                                                            color: white;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            & textarea {
+                                                height: 200px;
+                                                padding: 0;
+                                                padding-left: 10px;
+                                                margin: 0;
+                                                display: block;
+                                                width: calc(100% - 230px);
+                                                border-radius: 5px;
+                                                border: 1px solid rgb(139, 139, 139);
+                                                font-size: 90%;
+                                                outline: none;
+                                                &:focus {
+                                                    border: 2px solid rgb(230, 48, 48);
+                                                }
+                                                &:active {
+                                                    border: 2px solid rgb(230, 48, 48);
+                                                }
+                                            }
+                                        }
+                                        & .add_info {
+                                            @include addinfo;
+                                        }
+                                    }
+                                    & #Link {
+                                        overflow-y: scroll;
+                                        & .upsell_container {
+                                            width: 100%;
+                                            margin-bottom: 5px;
+                                            & .title_container {
+                                                width: 100px;
+                                                height: 100%;
+                                                float: left;
+                                                padding-top: 15px;
+                                                & p {
+                                                    text-align: center;
+                                                    width: 100%;
+                                                    font-size: 85%;
+                                                }
+                                            }
+                                            & .usell_item_container {
+                                                width: calc(100% - 100px);
+                                                height: 100%;
+                                                display: relative;
+                                                float: left;
+                                                overflow: visible;
+                                                & .sell_display {
+                                                    padding: 3px;
+                                                    width: 98%;
+                                                    max-height: 100px;
+                                                    margin: auto;
+                                                    overflow: auto;
+                                                    display: flex;
+                                                    flex-direction: row;
+                                                    flex-wrap: wrap;
+                                                    align-items: flex-start;
+                                                    justify-content: flex-start;
+                                                    & p {
+                                                        font-size: 85%;
+                                                        padding: 2px 10px 2px 0px;
+                                                        margin: 3px;
+                                                        border: 1px solid rgb(166, 167, 170);
+                                                        border-radius: 3px;
+                                                        background-color: rgb(221, 221, 221);
+                                                        color: rgb(58, 58, 58);
+                                                        & span {
+                                                            cursor: pointer;
+                                                            padding: 0 5px 0 5px;
+                                                            color: rgb(173, 173, 173);
+                                                            font-weight: 500;
+                                                            &:hover {
+                                                                color: black;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                & input {
+                                                    outline: none;
+                                                    display: block;
+                                                    margin: auto;
+                                                    width: 98%;
+                                                    height: 35px;
+                                                    border-radius: 5px;
+                                                    border: none;
+                                                    border: 1px solid grey;
+                                                    &:focus {
+                                                        border: 2px solid red;
+                                                    }
+                                                }
+                                                & .search_display {
+                                                    width: 98%;
+                                                    margin: auto;
+                                                    padding-top: 10px;
+                                                    overflow: visible;
+                                                    z-index: 30;
+                                                    & .srch_cont {
+                                                        z-index: 30;
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    & #Attributes {
+                                        // display: block;
+                                        overflow: visible;
+                                        & .element_add_attribute {
+                                            padding-top: 7px;
+                                            width: 100%;
+                                            height: 50px;
+                                            overflow: visible;
+                                            & .selection {
+                                                margin-left: 20px;
+                                                margin-right: 10px;
+                                                position: relative;
+                                                height: 40px;
+                                                overflow: visible;
+                                                float: left;
+                                                & input {
+                                                    padding-left: 3px;
+                                                    border: 1px solid grey;
+                                                    display: block;
+                                                    margin: auto;
+                                                    width: 230px;
+                                                    height: 40px;
+                                                    border-radius: 5px;
+                                                    outline: none;
+                                                    &:focus {
+                                                        border: 2px solid red;
+                                                    }
+                                                }
+                                                & .sudgestion {
+                                                    position: absolute;
+                                                    margin: auto;
+                                                    width: 225px;
+                                                    height: fit-content;
+                                                    background-color: white;
+                                                    border-radius: 0 0 5px 5px;
+                                                    box-shadow: 0px 3px 6px grey;
+                                                    & p {
+                                                        cursor: pointer;
+                                                        width: 100%;
+                                                        height: 35px;
+                                                        margin: 0;
+                                                        margin: 0px;
+                                                        padding: 5px;
+                                                        padding-left: 10px;
+                                                        font-size: 90%;
+                                                        &:hover {
+                                                            background-color: red;
+                                                            color: white;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            & button {
+                                                display: block;
+                                                float: left;
+                                                width: 80px;
+                                                height: 35px;
+                                                outline: none;
+                                                border: 1px solid red;
+                                                color: red;
+                                                font-weight: 500;
+                                                border-radius: 5px;
+                                                &:hover {
+                                                    background-color: red;
+                                                    color: white;
+                                                }
+                                            }
+                                        }
+                                        & .set_attribute_value {
+                                            width: calc(100% - 5px);
+                                            margin-bottom: 5px;
+                                            & .attribute_head {
+                                                height: 45px;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: space-between;
+                                                border: 1px solid rgb(206, 206, 206);
+                                                box-sizing: content-box;
+                                                cursor: pointer;
+                                                &>p {
+                                                    width: 200px;
+                                                    height: 100%;
+                                                    margin: 0;
+                                                    padding: 0;
+                                                    line-height: 40px;
+                                                    padding-left: 10px;
+                                                    font-weight: 600;
+                                                }
+                                                & .elem_control {
+                                                    width: 100px;
+                                                    height: 100%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: space-around;
+                                                    & span {
+                                                        border-radius: 1px;
+                                                        width: 10px;
+                                                        height: 10px;
+                                                        border-left: 1px solid grey;
+                                                        border-bottom: 1px solid grey;
+                                                        transform: rotate(-45deg);
+                                                        position: relative;
+                                                        top: -3px;
+                                                        cursor: pointer;
+                                                        &:hover {
+                                                            background-color: rgb(189, 189, 189);
+                                                        }
+                                                    }
+                                                    & p {
+                                                        padding: 0;
+                                                        margin: 0;
+                                                        line-height: 40px;
+                                                        width: fit-content;
+                                                        height: 100%;
+                                                    }
+                                                }
+                                                &:hover {
+                                                    background-color: rgb(240, 240, 240);
+                                                }
+                                            }
+                                            & .attribute_body {
+                                                display: none;
+                                                width: 100%;
+                                                border: 1px solid rgb(221, 221, 221);
+                                                border-top: none;
+                                                padding-top: 5px;
+                                                padding-bottom: 5px;
+                                                & .name_column {
+                                                    float: left;
+                                                    width: 200px;
+                                                    height: fit-content;
+                                                    & .label_item {
+                                                        font-size: 90%;
+                                                        padding-left: 10px;
+                                                        width: 100%;
+                                                        height: 30px;
+                                                    }
+                                                    & h6 {
+                                                        padding-left: 15px;
+                                                        height: 45px;
+                                                    }
+                                                }
+                                                & .values_column {
+                                                    float: left;
+                                                    width: calc(100% - 201px);
+                                                    height: fit-content;
+                                                    & .label_item {
+                                                        font-size: 90%;
+                                                        padding-left: 10px;
+                                                        width: 100%;
+                                                        height: 30px;
+                                                    }
+                                                    & .input_section {
+                                                        width: 100%;
+                                                        display: block;
+                                                        background-color: white;
+                                                        border-radius: 5px;
+                                                        border: solid 1px rgb(163, 163, 163);
+                                                        box-sizing: border-box;
+                                                        & .selected {
+                                                            width: 100%;
+                                                            max-height: 99px;
+                                                            overflow: auto;
+                                                            display: flex;
+                                                            align-items: flex-start;
+                                                            flex-direction: row;
+                                                            flex-wrap: wrap;
+                                                            & p {
+                                                                font-size: 85%;
+                                                                padding: 2px 10px 2px 0px;
+                                                                margin: 3px;
+                                                                border: 1px solid rgb(166, 167, 170);
+                                                                border-radius: 3px;
+                                                                background-color: rgb(221, 221, 221);
+                                                                color: rgb(58, 58, 58);
+                                                                & span {
+                                                                    cursor: pointer;
+                                                                    padding: 0 5px 0 5px;
+                                                                    color: rgb(173, 173, 173);
+                                                                    font-weight: 500;
+                                                                    &:hover {
+                                                                        color: black;
+                                                                        background-color: rgb(192, 31, 31);
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        & input {
+                                                            display: block;
+                                                            width: 100%;
+                                                            height: 40px;
+                                                            border-radius: 5px;
+                                                            outline: none;
+                                                            border: none;
+                                                            padding: 10px;
+                                                            &:focus {
+                                                                border: none;
+                                                            }
+                                                        }
+                                                        & ul {
+                                                            display: none;
+                                                            width: 100%;
+                                                            margin: 0;
+                                                            padding: 0;
+                                                            list-style: none;
+                                                            & li {
+                                                                width: 100%;
+                                                                height: 30px;
+                                                                padding-left: 5px;
+                                                                cursor: pointer;
+                                                                &:hover {
+                                                                    color: white;
+                                                                    background-color: red;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        & button {
+                            position: static;
+                        }
+                        & #show {
+                            display: block;
+                            position: static;
+                            color: white;
+                            margin: auto;
+                            background-color: red;
+                            margin-bottom: 10px;
+                        }
+                        & .show {
+                            width: 100%;
+                            height: 300px;
+                            border: 1px solid grey;
+                        }
+                    }
+                    & .left_edit {
+                        width: 28%;
+                        height: 100%;
+                        & .product_update {
+                            width: 100%;
+                            height: 275px;
+                            background-color: white;
+                            transition: height 300ms ease-out;
+                            margin-bottom: 20px;
+                            & .elem_header_prod {
+                                border: 1px solid rgb(192, 192, 192);
+                                @include control_head;
+                                & .elem_name {
+                                    width: 200px;
+                                    height: 100%;
+                                    font-weight: 500;
+                                    line-height: 50px;
+                                    padding-left: 5px;
+                                    color: rgb(49, 49, 49);
+                                }
+                                &>.dropdown {
+                                    @include dropdwn;
+                                    &:hover {
+                                        cursor: pointer;
+                                        background-color: rgb(90, 90, 90);
+                                        span {
+                                            border-top: 2px solid rgb(255, 255, 255);
+                                            border-right: 2px solid rgb(255, 255, 255)
+                                        }
+                                    }
+                                }
+                            }
+                            &>.product_settings {
+                                width: 100%;
+                                height: calc(100% - 50px);
+                                border: 1px solid rgb(192, 192, 192);
+                                border-top: 0px solid grey;
+                                transition: height 0.2 ease-out;
+                                overflow: auto;
+                                & .input_text_prptotype {
+                                    width: 100%;
+                                    padding: 10 5px;
+                                    @include text_input_prototype_1;
+                                    & .Input_title {
+                                        width: 100px;
+                                    }
+                                    & select {
+                                        padding-right: 20px;
+                                        width: 150px;
+                                        background-color: white;
+                                    }
+                                }
+                                & .add_info {
+                                    @include addinfo;
+                                }
+                                & .upload_image_elem {
+                                    width: 100%;
+                                    height: 100%;
+                                    & .product_primary_image {
+                                        display: none;
+                                        width: 100%;
+                                        height: 100%;
+                                        & .imag_element_holder {
+                                            padding: 5px;
+                                            width: 100%;
+                                            height: 100%;
+                                            & img {
+                                                width: 100%;
+                                                height: 100%;
+                                                object-fit: scale-down;
+                                                object-position: center;
+                                            }
+                                        }
+                                        & #update_overlay {
+                                            width: 100%;
+                                            height: 100%;
+                                            position: relative;
+                                            top: -100%;
+                                            background-color: rgba($color: rgb(26, 26, 26), $alpha: 0.5);
+                                            display: flex;
+                                            opacity: 0;
+                                            align-items: center;
+                                            justify-content: space-evenly;
+                                            @include transition2;
+                                            & button {
+                                                color: white;
+                                                border-radius: 3px;
+                                                background-color: rgba($color: rgb(95, 95, 95), $alpha: 0.8);
+                                                padding: 5px 15px;
+                                                border: 1px solid grey;
+                                                &:hover {
+                                                    background-color: rgba($color: rgb(41, 41, 41), $alpha: 0.7);
+                                                    color: white;
+                                                }
+                                            }
+                                        }
+                                        .imag_element_holder:hover+#update_overlay {
+                                            opacity: 1;
+                                        }
+                                        #update_overlay:hover {
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                                & ul {
+                                    list-style: none;
+                                    margin: 0;
+                                    padding: 0;
+                                    & li {
+                                        width: 100%;
+                                        font-size: 90%;
+                                        & .parent_category {
+                                            width: 100%;
+                                            height: 30px;
+                                            display: flex;
+                                            align-items: center;
+                                            flex-direction: row;
+                                            justify-content: flex-start;
+                                            padding-left: 30px;
+                                            & .c_container {
+                                                margin: 0;
+                                                max-width: 50px;
+                                                display: inline-block;
+                                                position: relative;
+                                                cursor: pointer;
+                                                font-size: 22px;
+                                                height: 20px;
+                                                width: 20px;
+                                                -webkit-user-select: none;
+                                                -moz-user-select: none;
+                                                -ms-user-select: none;
+                                                user-select: none;
+                                                border-radius: 3px;
+                                                margin-right: 5px;
+                                                /* Hide the browser's default checkbox */
+                                                & input {
+                                                    position: absolute;
+                                                    opacity: 0;
+                                                    cursor: pointer;
+                                                    height: 0;
+                                                    width: 0;
+                                                    &:checked~.checkmark {
+                                                        background-color: rgb(243, 33, 33);
+                                                        border: none;
+                                                    }
+                                                    /* Show the checkmark when checked */
+                                                    &:checked~.checkmark:after {
+                                                        display: block;
+                                                    }
+                                                }
+                                                /* Create a custom checkbox */
+                                                & .checkmark {
+                                                    position: absolute;
+                                                    border-radius: 3px;
+                                                    left: 0;
+                                                    height: 20px;
+                                                    width: 20px;
+                                                    border: solid 1px grey;
+                                                    &:hover input~.checkmark {
+                                                        background-color: #ccc;
+                                                    }
+                                                    /* Create the checkmark/indicator (hidden when not checked) */
+                                                    &:after {
+                                                        content: "";
+                                                        position: absolute;
+                                                        display: none;
+                                                    }
+                                                    /* Style the checkmark/indicator */
+                                                    &:after {
+                                                        left: 7px;
+                                                        top: 4px;
+                                                        width: 5px;
+                                                        height: 10px;
+                                                        border: solid white;
+                                                        border-width: 0 3px 3px 0;
+                                                        -webkit-transform: rotate(45deg);
+                                                        -ms-transform: rotate(45deg);
+                                                        transform: rotate(45deg);
+                                                    }
+                                                }
+                                            }
+                                            & p {
+                                                height: 20px;
+                                                display: inline-block;
+                                                width: fit-content;
+                                                line-height: 20px;
+                                                padding: 0;
+                                                margin: 0;
+                                            }
+                                        }
+                                        & .child_category {
+                                            width: 100%;
+                                            display: flex;
+                                            align-items: center;
+                                            flex-direction: row;
+                                            justify-content: flex-start;
+                                            padding-left: 55px;
+                                            margin-bottom: 3px;
+                                            & .c_container {
+                                                margin: 0;
+                                                max-width: 50px;
+                                                display: inline-block;
+                                                position: relative;
+                                                cursor: pointer;
+                                                font-size: 22px;
+                                                height: 20px;
+                                                width: 20px;
+                                                -webkit-user-select: none;
+                                                -moz-user-select: none;
+                                                -ms-user-select: none;
+                                                user-select: none;
+                                                border-radius: 3px;
+                                                margin-right: 5px;
+                                                /* Hide the browser's default checkbox */
+                                                & input {
+                                                    position: absolute;
+                                                    opacity: 0;
+                                                    cursor: pointer;
+                                                    height: 0;
+                                                    width: 0;
+                                                    &:checked~.checkmark {
+                                                        background-color: rgb(243, 33, 33);
+                                                        border: none;
+                                                    }
+                                                    /* Show the checkmark when checked */
+                                                    &:checked~.checkmark:after {
+                                                        display: block;
+                                                    }
+                                                }
+                                                /* Create a custom checkbox */
+                                                & .checkmark {
+                                                    position: absolute;
+                                                    border-radius: 3px;
+                                                    left: 0;
+                                                    height: 20px;
+                                                    width: 20px;
+                                                    border: solid 1px grey;
+                                                    &:hover input~.checkmark {
+                                                        background-color: #ccc;
+                                                    }
+                                                    /* Create the checkmark/indicator (hidden when not checked) */
+                                                    &:after {
+                                                        content: "";
+                                                        position: absolute;
+                                                        display: none;
+                                                    }
+                                                    /* Style the checkmark/indicator */
+                                                    &:after {
+                                                        left: 7px;
+                                                        top: 4px;
+                                                        width: 5px;
+                                                        height: 10px;
+                                                        border: solid white;
+                                                        border-width: 0 3px 3px 0;
+                                                        -webkit-transform: rotate(45deg);
+                                                        -ms-transform: rotate(45deg);
+                                                        transform: rotate(45deg);
+                                                    }
+                                                }
+                                            }
+                                            & p {
+                                                height: 20px;
+                                                display: inline-block;
+                                                width: fit-content;
+                                                line-height: 20px;
+                                                padding: 0;
+                                                margin: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                                & .tag_entry {
+                                    margin: auto;
+                                    width: 98%;
+                                    height: 50px;
+                                    align-items: center;
+                                    justify-content: space-around;
+                                    position: relative;
+                                    & .search_tag_display {
+                                        position: relative;
+                                        float: left;
+                                        width: 180px;
+                                        height: fit-content;
+                                        & input {
+                                            display: block;
+                                            width: 180px;
+                                            height: 35px;
+                                            margin-top: 3px;
+                                            border-radius: 5px;
+                                            border: solid grey 1px;
+                                            padding-left: 5px;
+                                            outline: none;
+                                            margin-bottom: 5px;
+                                            &:focus {
+                                                border: solid red 2px;
+                                            }
+                                        }
+                                        & .tag_disp {
+                                            position: absolute;
+                                            width: 100%;
+                                            max-height: 160px;
+                                            background-color: white;
+                                            box-shadow: 0 0 6px grey;
+                                            & p {
+                                                cursor: pointer;
+                                                width: 100%;
+                                                height: 35px;
+                                                margin: 0;
+                                                margin: 0px;
+                                                padding: 5px;
+                                                padding-left: 10px;
+                                                font-size: 90%;
+                                                &:hover {
+                                                    background-color: red;
+                                                    color: white;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    & button {
+                                        display: block;
+                                        float: left;
+                                        outline: none;
+                                        width: 70px;
+                                        height: 35px;
+                                        border: 1px solid red;
+                                        border-radius: 5px;
+                                        margin-left: 5px;
+                                        margin-top: 3px;
+                                        &:hover {
+                                            background-color: red;
+                                            color: white;
+                                        }
+                                    }
+                                }
+                                & .tad_listing {
+                                    width: 100%;
+                                    height: fit-content;
+                                    display: flex;
+                                    align-items: flex-start;
+                                    flex-direction: row;
+                                    flex-wrap: wrap;
+                                    & p {
+                                        font-size: 85%;
+                                        padding: 2px 10px 2px 0px;
+                                        margin: 3px;
+                                        border: 1px solid rgb(166, 167, 170);
+                                        border-radius: 3px;
+                                        background-color: rgb(221, 221, 221);
+                                        color: rgb(58, 58, 58);
+                                        & span {
+                                            cursor: pointer;
+                                            padding: 0 5px 0 5px;
+                                            color: rgb(173, 173, 173);
+                                            font-weight: 500;
+                                            &:hover {
+                                                color: black;
+                                                background-color: rgb(192, 31, 31);
+                                            }
+                                        }
+                                    }
+                                }
+                                & .conf_update {
+                                    width: 100%;
+                                    height: 70px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-around;
+                                    flex-direction: row;
+                                    & button {
+                                        width: 80px;
+                                        height: 40px;
+                                        color: red;
+                                        border-radius: 3px;
+                                        border: solid 1px red;
+                                        &:hover {
+                                            background-color: red;
+                                            color: white;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                & .search_cat {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: 100%;
+                    height: 50px;
+                    margin-bottom: 10px;
+                    & .elem_wrapper {
+                        width: fit-content;
+                        margin-right: 10px;
+                        & input {
+                            outline: none;
+                            border: 1px solid grey;
+                            width: 230px;
+                            height: 40px;
+                            display: block;
+                            border-radius: 5px;
+                            &:active {
+                                border: 1px solid rgb(240, 59, 59);
+                            }
+                            &:focus {
+                                border: 2px solid rgb(240, 59, 59);
+                            }
+                        }
+                        & select {
+                            outline: none;
+                            border: 1px solid grey;
+                            width: 230px;
+                            height: 40px;
+                            display: inline-block;
+                            border-radius: 5px;
+                        }
+                        & button {
+                            outline: none;
+                            margin-right: 20px;
+                            border: 1px solid rgb(240, 59, 59);
+                            height: 40px;
+                            width: fit-content;
+                            display: inline-block;
+                            border-radius: 5px;
+                            font-weight: 500;
+                            color: rgb(240, 59, 59);
+                            &:hover {
+                                color: white;
+                                background-color: rgb(240, 59, 59);
+                            }
+                        }
+                    }
+                }
+                & #left_cat_description {
+                    padding: 0 10px;
+                    font-size: 90%;
+                    float: left;
+                    width: 300px;
+                    & .add_item_pannel {
+                        width: 100%;
+                        padding-bottom: 30px;
+                        & h5 {
+                            font-size: 110%;
+                            margin-bottom: 20px;
+                        }
+                        & .entry_title {
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+                            margin-bottom: 8px;
+                            padding-bottom: 1px;
+                        }
+                        & input,
+                        select,
+                        textarea {
+                            width: 100%;
+                            height: 40px;
+                            display: block;
+                            border: none;
+                            border: solid 1px grey;
+                            border-radius: 5px;
+                            margin-bottom: 30px;
+                            padding-left: 5px;
+                            &:focus {
+                                border: none;
+                                outline: none;
+                                border: 2px solid red;
+                            }
+                        }
+                        & textarea {
+                            width: 100%;
+                            height: 150px;
+                            display: block;
+                            border: none;
+                            border: solid 1px grey;
+                            border-radius: 5px;
+                            margin-bottom: 10px;
+                        }
+                        & button {
+                            width: 80px;
+                            height: 30px;
+                            border: 1px solid rgb(233, 40, 40);
+                            color: white;
+                            border-radius: 5px;
+                            display: block;
+                            margin: auto;
+                            color: rgb(243, 77, 77);
+                            font-weight: 500;
+                            &:hover {
+                                background-color: rgb(241, 75, 75);
+                                color: white;
+                            }
+                        }
+                    }
+                }
+                & #right_cat_description {
+                    float: left;
+                    width: calc(100% - 300px);
+                    &>#category_tbl {
+                        background-color: white;
+                        width: calc(95%);
+                        margin: auto;
+                        table-layout: fixed;
+                        display: block;
+                        border: solid rgb(202, 202, 202) 1px;
+                        font-size: 90%;
+                        &>thead {
+                            width: 100%;
+                            border-bottom: 2px solid rgb(202, 202, 202);
+                            &>tr {
+                                th {
+                                    word-wrap: break-word;
+                                    height: fit-content;
+                                    border-bottom: none;
+                                    color: red;
+                                    text-align: center;
+                                    font-weight: 500;
+                                    font-size: 110%;
+                                }
+                                th:nth-child(1) {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    margin: 0;
+                                    @include custom_checkbox;
+                                    // max-width: 50px;
+                                    height: 30px;
+                                    margin-top: 10px;
+                                    border: none;
+                                }
+                            }
+                        }
+                        &>tbody {
+                            &>tr {
+                                cursor: pointer;
+                                td {
+                                    word-wrap: break-word;
+                                }
+                                td:nth-child(1) {
+                                    max-width: 50px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border-bottom: none;
+                                    @include custom_checkbox;
+                                }
+                                td:nth-child(4) {
+                                    text-align: center;
+                                }
+                                td:nth-child(5) {
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                    &>#tag_tbl {
+                        background-color: white;
+                        margin: auto;
+                        font-size: 90%;
+                        padding-top: 1px;
+                        border: 1px solid rgb(197, 197, 197);
+                        &>thead {
+                            width: 100%;
+                            &>tr {
+                                th {
+                                    border-top: 1px solid rgb(197, 197, 197);
+                                    word-wrap: break-word;
+                                    width: 100%;
+                                    height: fit-content;
+                                    color: red; // text-align: center;
+                                    font-weight: 500;
+                                    font-size: 110%;
+                                }
+                                th:nth-child(1) {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    @include custom_checkbox;
+                                    border-bottom: none;
+                                }
+                            }
+                        }
+                        &>tbody {
+                            &>tr {
+                                cursor: pointer;
+                                td {
+                                    word-wrap: break-word;
+                                    width: 100%;
+                                }
+                                td:nth-child(1) {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    @include custom_checkbox;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .add_supplier {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    width: 100%;
+                    background-color: white;
+                    border-radius: 5px;
+                    border: 1px solid #b8b8b8;
+                    &>.reg_det {
+                        width: 97%;
+                        margin: auto;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        box-shadow: 0 0 6px grey;
+                        margin-bottom: 20px;
+                        & h5 {
+                            display: block;
+                            margin: auto;
+                            color: white;
+                            font-weight: 700;
+                            background-color: $system-red;
+                            margin-bottom: 10px;
+                            padding: 10px 0;
+                            padding-left: 40px;
+                        }
+                        & .field_holder {
+                            width: 100%;
+                            height: 35px;
+                            margin-bottom: 10px;
+                            & p {
+                                line-height: 35px;
+                                display: inline-block;
+                                width: 300px;
+                                padding-left: 30px;
+                                font-weight: 500;
+                                color: rgb(98, 98, 98);
+                            }
+                            & .value {
+                                line-height: 35px;
+                                display: inline-block;
+                                min-width: 300px;
+                                font-weight: 400;
+                                padding-left: 5px;
+                            }
+                            & input {
+                                display: inline-block;
+                                height: 100%;
+                                min-width: 600px;
+                                border-radius: 5px;
+                                border: 1px solid rgb(156, 156, 156);
+                                padding-left: 5px;
+                                color: rgb(98, 98, 98);
+                                outline: none;
+                                &:focus {
+                                    border: 2px solid rgb(250, 115, 115);
+                                }
+                            }
+                            & select {
+                                display: inline-block;
+                                height: 100%;
+                                width: 300px;
+                                border-radius: 5px;
+                                border: 1px solid rgb(156, 156, 156);
+                                padding-left: 5px;
+                                color: rgb(98, 98, 98);
+                                outline: none;
+                                &:focus {
+                                    border: 2px solid rgb(250, 115, 115);
+                                }
+                            }
+                        }
+                        & .company_profile_edit {
+                            width: 100%;
+                            height: 350px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            flex-wrap: wrap;
+                            &>div {
+                                width: 430px;
+                                height: 90%;
+                                border-radius: 5px;
+                                overflow: hidden;
+                                box-shadow: 0 0 6px grey;
+                                & h5 {
+                                    font-size: 120%;
+                                    padding-bottom: 5px;
+                                    padding-top: 5px;
+                                    font-weight: 500;
+                                }
+                                & .field_holder {
+                                    width: 100%;
+                                    height: 40px;
+                                    padding-right: 10px;
+                                    & p {
+                                        width: 120px;
+                                        padding: 0;
+                                        text-align: center;
+                                        font-size: 90%;
+                                    }
+                                    & input {
+                                        min-width: 250px;
+                                        height: 35px;
+                                    }
+                                }
+                            }
+                        }
+                        &>.field_holder.note {
+                            display: flex;
+                            width: 100%;
+                            padding-bottom: 10px;
+                            height: fit-content;
+                            & p {
+                                width: 200px;
+                                margin-left: 10px;
+                            }
+                            & textarea {
+                                outline: none;
+                                min-width: 700px;
+                                border-radius: 5px;
+                                padding: 3px;
+                                font-size: 90%;
+                                min-height: 40px;
+                                &:focus {
+                                    border: solid red 2px;
+                                }
+                            }
+                            & .comp_log {
+                                width: 600px;
+                                height: 300px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-around;
+                                flex-direction: row;
+                                &>.elem_add_image {
+                                    width: 300px;
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    padding: 5px;
+                                    & input {
+                                        display: none;
+                                        outline: none;
+                                        box-shadow: none !important;
+                                        border: 1px solid #ccc !important;
+                                        &:focus {
+                                            display: none;
+                                            outline: none;
+                                            box-shadow: none !important;
+                                            border: 1px solid #ccc !important;
+                                        }
+                                    }
+                                }
+                                &>.elem_display_image {
+                                    width: calc(100% - 300px);
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    & .elem_vendor_image {
+                                        margin: auto;
+                                        max-width: 290px;
+                                        max-height: 290px;
+                                        background-color: white;
+                                        border: 1px solid grey;
+                                        & img {
+                                            display: block;
+                                            margin: auto;
+                                            max-height: 80%;
+                                            max-width: 80%;
+                                            object-position: center;
+                                            object-fit: scale-down;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &>.Submition {
+                        position: relative;
+                        top: 0;
+                        margin: auto;
+                        width: 150px;
+                        height: 40px;
+                        background-color: $system-red;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        box-shadow: 0 0 0 grey;
+                        transition: all 200ms ease-in;
+                        & button {
+                            font-weight: 500;
+                            color: white;
+                            position: static;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            outline: none;
+                        }
+                        &:hover {
+                            transition: all 200ms ease-in;
+                            top: -3px;
+                            box-shadow: 0 0 8px rgb(102, 102, 102);
+                        }
+                    }
+                }
+            }
+            & .mainactivities {
+                @include maniactivity;
+                float: left;
+                & .cardtitle {
+                    width: 95%;
+                    margin: auto;
+                    margin-bottom: 2px;
+                    border-bottom: 1px solid #dedede;
+                    font-family: 'Open Sans', sans-serif;
+                    text-align: center;
+                }
+                & .mainactivitieStatistics {
+                    width: 97%;
+                    margin: auto;
+                    & .OnlinevistorsDashboard {
+                        width: 100%;
+                        height: 80px;
+                        margin-bottom: 5px;
+                        & .desc {
+                            float: left;
+                            width: 200px;
+                            height: 100%;
+                            & .descname {
+                                padding-left: 10px;
+                                font-size: 120%;
+                                font-weight: 600;
+                                color: #3bb3e3;
+                            }
+                            & .desctime {
+                                padding-left: 10px;
+                                color: grey;
+                                font-size: 90%;
+                            }
+                        }
+                        & .timeDiv {
+                            float: left;
+                            width: calc(100% - 200px);
+                            height: 100%;
+                            text-align: center;
+                            line-height: 80px;
+                            font-weight: 600;
+                            color: grey;
+                            font-size: 110%;
+                        }
+                    }
+                    & .PendingActivities {
+                        width: 99%;
+                        margin: auto;
+                        margin: 0;
+                        &>p {
+                            width: 100%;
+                            height: 30px;
+                            color: white;
+                            background-color: $system-red;
+                            text-align: center;
+                            font-weight: 600;
+                            margin: 2px;
+                        }
+                        & .lister {
+                            & .listed {
+                                width: 97%;
+                                height: 40px;
+                                border: 1px solid #c2c2c2;
+                                box-sizing: border-box;
+                                margin: auto;
+                                padding: 0;
+                                &>div:nth-child(1) {
+                                    width: auto;
+                                    float: left;
+                                    padding-left: 10px;
+                                    line-height: 40px;
+                                    color: var(--main-blue);
+                                }
+                                &>div:nth-child(2) {
+                                    width: auto;
+                                    float: right;
+                                    padding-right: 20px;
+                                    line-height: 40px;
+                                    font-weight: 600;
+                                    font-size: 110%;
+                                    color: grey;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            & .mainactivities2 {
+                @extend .mainactivities;
+                width: calc(100% - 300px - 10px);
+                float: left;
+                & .statNumbers {
+                    width: 95%;
+                    height: 100px;
+                    margin: auto;
+                    margin-bottom: 10px;
+                    & .statbox {
+                        width: 25%;
+                        height: 100%;
+                        box-sizing: border-box;
+                        border: 1px solid #dedede;
+                        float: left;
+                        & p {
+                            text-align: center;
+                        }
+                        & p:nth-child(2) {
+                            font-size: 110%;
+                            color: grey;
+                            font-weight: 600;
+                        }
+                        &:hover {
+                            cursor: pointer;
+                            background-color: $system-red;
+                            color: white;
+                        }
+                        &:hover p:nth-child(2) {
+                            background-color: $system-red;
+                            color: white;
+                        }
+                    }
+                }
+                & .chart1 {
+                    width: 95%;
+                    margin: auto;
+                    border-radius: 8px;
+                }
+            }
+            & .mainactivities3 {
+                float: left;
+                @extend .mainactivities2;
+                & .salesListdash {
+                    width: 95%;
+                    height: auto;
+                    margin: auto;
+                }
+            }
+            & .filter_pannel {
+                width: 100%;
+                height: 90px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                & .top_pannel {
+                    width: 100%;
+                    height: 40px;
+                    margin-bottom: 8px;
+                    ul {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        padding-left: 20px;
+                        li {
+                            display: inline-block;
+                            color: red;
+                            height: 17px;
+                            line-height: 17px;
+                            border-right: solid grey 2px;
+                            & button {
+                                font-size: 90%;
+                                height: 100%;
+                                color: rgb(221, 67, 67);
+                                & span {
+                                    color: grey;
+                                }
+                                &:focus {
+                                    color: black;
+                                    outline: none;
+                                }
+                            }
+                        }
+                    }
+                }
+                & .lower_pannel {
+                    width: 100%;
+                    height: 40px;
+                    ul {
+                        width: 100%;
+                        height: 100%;
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        padding-left: 20px;
+                        li {
+                            display: inline-block;
+                            margin-top: 5px;
+                            color: red;
+                            height: 30px;
+                            line-height: 17px;
+                            & select {
+                                margin: 0;
+                                padding: 0;
+                                width: 170px;
+                                height: 30px;
+                                font-size: 90%;
+                                border-radius: 3px;
+                                outline: none;
+                                &:focus {
+                                    border: 2px solid rgb(250, 115, 115);
+                                }
+                            }
+                            & input {
+                                margin-left: 40px;
+                                width: 270px;
+                                height: 30px;
+                                border: solid grey 1px;
+                                border-radius: 3px;
+                                outline: none;
+                                padding-left: 8px;
+                                &:focus {
+                                    border: 2px solid rgb(250, 115, 115);
+                                }
+                            }
+                            & .search_results {
+                                position: relative;
+                                width: 270px;
+                                margin-left: 40px;
+                                margin-top: 3px;
+                                height: 300px;
+                                background-color: red;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    input[type='search'] {
+        width: 300px;
+        height: 32px;
+        border-radius: 16px;
+        border: 1px solid rgb(204, 204, 204);
+        padding-left: 12px;
+        padding-right: 33px;
+        font-style: italic;
+    }
+    button {
+        background-color: transparent;
+        border: none;
+    }
+    input[type='search']:focus {
+        border: 2px solid rgb(245, 147, 147);
+        outline: 0;
+    }
+}
+
+.select_file {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & input {
+        display: block;
+    }
+    & input[type="submit"] {
+        border: none;
+        background-color: red;
+        width: 80px;
+        color: white;
+        margin-bottom: 10px;
+    }
+    & input[type="file"] {
+        width: 250px;
+        margin-bottom: 10px;
+    }
+    & .progress_bar {
+        display: none;
+        width: 250px;
+        border-radius: 3px;
+        border: 1px solid rgb(197, 197, 197);
+        height: 26px;
+        align-items: center;
+        justify-content: flex-start;
+        & .progress {
+            width: 100%;
+            height: 25px;
+        }
+    }
+}
