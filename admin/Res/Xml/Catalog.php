@@ -152,11 +152,15 @@ if ($resp[0] == true) {
                                     //get list ID
                                     $id = $resp[1][$i]['ListOrder'];
                                     $image = $moderator->getitemsbyref($id, 'image_prod_domain', 'product_id', $moderator->getConnection());
-                                    $img_obj = $moderator->getitemsbyref($image[1][0]['image_id'], 'tbl_image_db', 'UUID', $moderator->getConnection());
+                                    if($image[0] == true){
+                                        $img_obj = $moderator->getitemsbyref($image[1][0]['image_id'], 'tbl_image_db', 'UUID', $moderator->getConnection());
 
-                                    if ($image[0] == true) {
-                                        echo $img_obj[1][0]['path_from_root'];
-                                    } else {
+                                        if ($image[0] == true) {
+                                            echo $img_obj[1][0]['path_from_root'];
+                                        } else {
+                                            echo "http://test.local/res/images/productsImages/default.png";
+                                        }
+                                    }else{
                                         echo "http://test.local/res/images/productsImages/default.png";
                                     }
                                     ?>
