@@ -240,7 +240,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             
         }else{
-            
+          //TODO:set a value for here  
         }
 
     } elseif ($action == "get_product"){
@@ -359,8 +359,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         echo json_encode($responce);
+    } elseif ($action == "bulk_products_action"){
+        $data = isset($_REQUEST['data']) ? $_REQUEST['data'] : "";
+
+         if(!empty($data)){
+             $data = json_decode($data);
+             
+             $method = $data[0];
+             $ids_array = $data[1];
+
+             switch($method){
+                 case "Sort";
+                    echo "Sort";
+                    break;
+                case "Delete";
+                    foreach($ids_array as $id){
+                        $conn = $moderator->getConnection();
+                        //confirm it exist
+                        $exist = $moderator->ifItemExist($id, "tbl_products", "UUID", $conn);
+
+                        // echo $_SESSION['SESSION_TYPE'];
+                        if( ($exist == false) || ($_SESSION['SESSION_TYPE']!='Admin') ){
+                            echo "access denied";
+                        }else{
+                            //delete product
+                            $dataset = array(
+                                "UUID"=>$id
+                            );
+
+                            $table = 'tbl_products';
+                            $type = "s";
+                            $responce = $admin->delete_from_database($dataset, $table, $admin->getConnection(), $type);
+
+                            print_r($responce);
+
+                        }
+                    }    
+
+                    break;
+                case "Disable";
+                    echo "Disable";
+                    break;
+                default:
+                    echo "Invalid Method";
+                break;
+
+                exit();
+             }
+         }else{
+             //TODO:set a value for here  
+         }
     }else{
-        echo (json_encode("hi"));
+        echo (json_encode("Invalid Action"));
     }
 }elseif($_SERVER['REQUEST_METHOD'] === 'DELETE'){
     $admin->deleteall("tbl_moderators",$conn = $admin->getConnection());

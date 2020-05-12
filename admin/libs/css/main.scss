@@ -2347,6 +2347,17 @@ html {
                                 height: 300px;
                                 background-color: red;
                             }
+                            & button {
+                                outline: none;
+                                border-radius: 5px;
+                                border: 1px solid red;
+                                color: red;
+                                height: 35px;
+                                &:hover {
+                                    background-color: red;
+                                    color: white;
+                                }
+                            }
                         }
                     }
                 }

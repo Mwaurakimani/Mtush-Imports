@@ -3996,6 +3996,21 @@ html .wrapper .content .filter_pannel .lower_pannel ul li .search_results {
   background-color: red;
 }
 
+body .wrapper .content .filter_pannel .lower_pannel ul li button,
+html .wrapper .content .filter_pannel .lower_pannel ul li button {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid red;
+  color: red;
+  height: 35px;
+}
+
+body .wrapper .content .filter_pannel .lower_pannel ul li button:hover,
+html .wrapper .content .filter_pannel .lower_pannel ul li button:hover {
+  background-color: red;
+  color: white;
+}
+
 body input[type='search'],
 html input[type='search'] {
   width: 300px;

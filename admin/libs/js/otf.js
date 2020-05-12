@@ -1046,3 +1046,38 @@ function pass_moderator() {
     }
 
 }
+
+function product_bulk_function() {
+    var selector = $("#product_bulk_option");
+    var option = selector.find("option:selected").val();
+
+    //get all check"ed items
+    var parent = $(".salesListdash2");
+    var allCheckBoxes = parent.find("input[type='checkbox']");
+    var products_filter = [];
+
+    allCheckBoxes.each(function(index, element) {
+        if ($(element).attr('id') == "main_checker") {
+            return true;
+        } else {
+            if ($(element).is(':checked')) {
+                var elemParent = $(element).parent().parent().parent();
+                var elemID = elemParent.data("id");
+                products_filter.push(elemID);
+            }
+        }
+    });
+    var data = [
+        option,
+        products_filter
+    ];
+
+    data = JSON.stringify(data);
+
+
+    products_action("bulk_products_action", data, call_back);
+
+    function call_back(data) {
+        console.log(data);
+    }
+}

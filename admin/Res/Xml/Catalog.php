@@ -83,31 +83,34 @@ if ($resp[0] == true) {
         <ul>
             <li>
                 <select name="" id="">
-                    <option value="">Category</option>
+                    <option value="">Sort by</option>
                 </select>
             </li>
             <li>
                 <select name="" id="">
-                    <option value="">Product Type</option>
+                    <option value="">Options</option>
                 </select>
+            </li>
+            <li style="width:40px;height:1px;">
+
             </li>
             <li>
-                <select name="" id="">
-                    <option value="">Stock</option>
+                <select name="product_bulk_option" id="product_bulk_option">
+                    <option value="Sort" selected>Sort</option>
+                    <option value="Delete">Delete</option>
+                    <option value="Disable">Disable</option>
                 </select>
             </li>
-            <li>
-                <select name="" id="">
-                    <option value="">Sort</option>
-                </select>
+            <li style="margin-left: 5px">
+                <button onclick="product_bulk_function()">Apply</button>
             </li>
+
             <li>
                 <input type="text">
                 <!-- <div class="search_results">
 
-        </div> -->
+                </div> -->
             </li>
-
         </ul>
     </div>
 </div>
@@ -126,7 +129,7 @@ if ($resp[0] == true) {
                         <tr>
                             <th>
                                 <label class="c_container">
-                                    <input type="checkbox" onchange="checkall()">
+                                    <input type="checkbox" onchange="checkall()" id="main_checker">
                                     <span class="checkmark"></span>
                                 </label>
                             </th>
@@ -140,7 +143,7 @@ if ($resp[0] == true) {
                         <?php
                         for ($i = 0; $i < $count; $i++) {
                         ?>
-                            <tr onclick="open_product('<?php echo $resp[1][$i]['UUID']; ?>')">
+                            <tr onclick="open_product('<?php echo $resp[1][$i]['UUID']; ?>')" data-id="<?php echo $resp[1][$i]['UUID']; ?>">
                                 <td>
                                     <label class="c_container" onclick="event.stopPropagation()">
                                         <input type="checkbox" onchange="changing(event)">
@@ -152,7 +155,7 @@ if ($resp[0] == true) {
                                     //get list ID
                                     $id = $resp[1][$i]['ListOrder'];
                                     $image = $moderator->getitemsbyref($id, 'image_prod_domain', 'product_id', $moderator->getConnection());
-                                    if($image[0] == true){
+                                    if ($image[0] == true) {
                                         $img_obj = $moderator->getitemsbyref($image[1][0]['image_id'], 'tbl_image_db', 'UUID', $moderator->getConnection());
 
                                         if ($image[0] == true) {
@@ -160,7 +163,7 @@ if ($resp[0] == true) {
                                         } else {
                                             echo "http://test.local/res/images/productsImages/default.png";
                                         }
-                                    }else{
+                                    } else {
                                         echo "http://test.local/res/images/productsImages/default.png";
                                     }
                                     ?>
