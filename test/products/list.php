@@ -4,7 +4,7 @@ passheader();
 ?>
 <link rel="stylesheet" href="<?php echo ROOT; ?>/libs/css/main.css">
 <script data-main="../libs/js/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
 <title>Document</title>
 </head>
 
@@ -62,22 +62,22 @@ passheader();
                         $description = $product['cardDescription'];
                         $image = $product['path_from_root'];
 
-                        if($image ==  null){
-                            $image = PROD_IMAGES."default.png";
+                        if ($image ==  null) {
+                            $image = PROD_IMAGES . "default.png";
                         }
                 ?>
-                    <div class="col-sm col-md-4 col-lg-3 prod_card" id="<?php echo $id ?>">
-                        <div class="product_cards">
-                            <div class="img_el">
-                                <img src="<?php echo $image?>" alt="">
+                        <div class="col-sm col-md-4 col-lg-3 prod_card" onclick="openProduct(<?php echo $id ?>)">
+                            <div class="product_cards">
+                                <div class="img_el">
+                                    <img src="<?php echo $image ?>" alt="">
+                                </div>
+                                <h6><?php echo $name ?></h6>
+                                <p><?php echo $description ?></p>
+                                <button>
+                                    View
+                                </button>
                             </div>
-                            <h6><?php echo $name ?></h6>
-                            <p><?php echo $description ?></p>
-                            <button>
-                                View
-                            </button>
                         </div>
-                    </div>
                     <?php
                     }
                 } else {

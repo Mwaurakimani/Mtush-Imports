@@ -4,7 +4,7 @@ const pg_render = '/libs/js/render.js';
 const pg_loader = '/libs/js/live.js';
 
 require([
-    pg_loader,
+    // pg_loader,
     pg_render
 ], function() {
     $(document).ready(function() {
@@ -14,4 +14,8 @@ require([
 
 function openCategory(e) {
     window.location.href = ROOT + "/products/list?category=" + e;
+}
+
+function openProduct(e) {
+    window.location.href = ROOT + "/products/item?product=" + e;
 }
