@@ -4,7 +4,6 @@ passheader();
 ?>
 <link rel="stylesheet" href="<?php echo ROOT; ?>/libs/css/main.css">
 <script data-main="../libs/js/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-<meta http-equiv="refresh" content="3">
 <title>Document</title>
 </head>
 
@@ -20,7 +19,7 @@ passheader();
     </div>
     <div class="container catalog products_categories">
         <div class="row">
-            <div class="col-sm col-md-4 prod_card">
+            <div class="col-sm col-md-4 prod_card" onclick="openCategory(3)">
                 <div class="product_cards">
                     <div class="img_el">
                         <img src="<?php echo SYSTEM_IMAGES . "male.jpg" ?>" alt="">
@@ -32,7 +31,7 @@ passheader();
                     </button>
                 </div>
             </div>
-            <div class="col-sm col-md-4 prod_card">
+            <div class="col-sm col-md-4 prod_card" onclick="openCategory(5)">
                 <div class="product_cards">
                     <div class="img_el">
                         <img src="<?php echo SYSTEM_IMAGES . "ladies.jpg" ?>" alt="">
@@ -44,7 +43,7 @@ passheader();
                     </button>
                 </div>
             </div>
-            <div class="col-sm col-md-4 prod_card">
+            <div class="col-sm col-md-4 prod_card" onclick="openCategory(3)">
                 <div class="product_cards">
                     <div class="img_el">
                         <img src="<?php echo SYSTEM_IMAGES . "kids.jpg" ?>" alt="">
@@ -56,7 +55,7 @@ passheader();
                     </button>
                 </div>
             </div>
-            <div class="col-sm col-md-4 prod_card">
+            <div class="col-sm col-md-4 prod_card" onclick="openCategory(4)">
                 <div class="product_cards">
                     <div class="img_el">
                         <img src="<?php echo SYSTEM_IMAGES . "duvet.jfif" ?>" alt="">
@@ -68,7 +67,7 @@ passheader();
                     </button>
                 </div>
             </div>
-            <div class="col-sm col-md-4 prod_card">
+            <div class="col-sm col-md-4 prod_card" onclick="openCategory(5)">
                 <div class="product_cards">
                     <div class="img_el">
                         <img src="<?php echo SYSTEM_IMAGES . "shoes.jpg" ?>" alt="">
@@ -80,7 +79,7 @@ passheader();
                     </button>
                 </div>
             </div>
-            <div class="col-sm col-md-4 prod_card">
+            <div class="col-sm col-md-4 prod_card" onclick="openCategory(6)">
                 <div class="product_cards">
                     <div class="img_el">
                         <img src="<?php echo SYSTEM_IMAGES . "accesories.jpg" ?>" alt="">
@@ -92,8 +91,8 @@ passheader();
                     </button>
                 </div>
             </div>
-            <div class="col-12 show_all">
-            <button>View All</button>
+            <div class="col-12 show_all" onclick="openCategory(1)">
+                <button>View All</button>
             </div>
         </div>
     </div>
@@ -128,6 +127,6 @@ passheader();
     </div>
 
     <?php
-      pass_footer();
+    pass_footer();
     ?>
 </body>

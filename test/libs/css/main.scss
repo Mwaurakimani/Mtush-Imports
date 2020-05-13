@@ -213,6 +213,7 @@
         background-color: red;
         color: white;
         padding: 5px;
+        margin-bottom: 10px;
     }
     & .prod_card {
         display: flex;
@@ -233,7 +234,7 @@
             transition: all ease-in 0.1s;
             & .img_el {
                 width: 100%;
-                height: 200px;
+                height: 190px;
                 & img {
                     width: 100%;
                     height: 100%;
@@ -245,9 +246,12 @@
                 text-align: center;
             }
             & p {
+                text-align: center;
                 padding: 5px;
-                font-size: 80%;
-                height: 105px;
+                font-weight: 500;
+                color: rgb(88, 88, 88);
+                font-size: 75%;
+                height: 80px;
             }
             & button {
                 outline: none;
@@ -410,8 +414,28 @@
 }
 
 .products_categories {
+    min-height: calc(100vh - 512px);
     padding-top: 30px;
     padding-bottom: 50px;
+    & .row {
+        margin: auto;
+        width: 100%;
+        & .noItemsFound {
+            background-color: rgb(228, 228, 228);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(168, 168, 168);
+            margin: auto;
+            width: 300px;
+            height: 100%;
+            & p {
+                font-family: 'Passion One', cursive;
+                text-align: center;
+                font-size: 150%;
+                font-weight: 400;
+                color: grey;
+            }
+        }
+    }
 }
 
 .item_long_description {

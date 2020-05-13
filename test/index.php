@@ -9,7 +9,7 @@ passheader();
 
 <body>
   <?php
-    pass_menu();
+  pass_menu();
   ?>
   <div class="mobile_banner">
     <div class="banner_frame">
@@ -72,27 +72,29 @@ passheader();
 
   <div class="container catalog">
     <h4>Featured</h4>
-    <div class="row">
-    <?php
+    <div class="row" style="padding-top: 20px">
+      <?php
       $count = 3;
 
-      for($i = 0;$i < $count;$i++){
-    ?>
-      <div class="col-sm col-md-4 prod_card">
-        <div class="product_cards">
-          <div class="img_el">
-            <img src="<?php echo PROD_IMAGES . "default.png" ?>" alt="">
+      for ($i = 0; $i < $count; $i++) {
+      ?>
+        <div class="col-sm col-md-4 prod_card">
+          <div class="product_cards">
+            <div class="img_el">
+              <img src="<?php echo PROD_IMAGES . "default.png" ?>" alt="">
+            </div>
+            <h6>PRODUCT NAME PRODUCT NAME PRODUCT NAME
+              PRODUCT NAME
+            </h6>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, aspernatur cumque voluptate architecto deserunt commodi vitae Fuga amet dignissimos vel quo!</p>
+            <button>
+              View
+            </button>
           </div>
-          <h6>PRODUCT NAME</h6>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, aspernatur cumque voluptate architecto deserunt commodi vitae Fuga amet dignissimos vel quo!</p>
-          <button>
-            View
-          </button>
         </div>
-      </div>
-    <?php
-    }
-    ?>
+      <?php
+      }
+      ?>
     </div>
   </div>
 
@@ -116,9 +118,9 @@ passheader();
     </div>
   </div>
 
-<?php
+  <?php
   pass_footer();
-?>
+  ?>
 </body>
 
 </html>

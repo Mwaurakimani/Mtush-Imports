@@ -4,6 +4,7 @@ passheader();
 ?>
 <link rel="stylesheet" href="<?php echo ROOT; ?>/libs/css/main.css">
 <script data-main="../libs/js/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap" rel="stylesheet">
 <title>Document</title>
 </head>
 
@@ -23,39 +24,79 @@ passheader();
         <div class="row">
             <?php
 
-            $category;
+            $category = null;
             $Products_response = array();
             $simple_products_response = array();
             $bind_product = array();
 
             if (!isset($_GET['category'])) {
-                echo "No ID";
-                //TODO: work on the alternatives
+            ?>
+                <div class="noItemsFound">
+                    <p>SORRY!</p>
+                    <p>We could not find any products matching your category.</p>
+                    <p>You could try <a href="#">this</a> instead.</p>
+                </div>
+                <?php
             } else {
                 $category = $_GET['category'];
-                $products_exist = false;
 
-                $fields = '*';
-                $table = "product_category_domain";
+                $fields = [
+                    'ListOrder',
+                    'path_from_root',
+                    'productName',
+                    'cardDescription'
+                ];
+                $table = "v_list_products";
                 $ref = [
                     array('category_id', $_GET['category'])
                 ];
-                $type = "s";
+                $type = "i";
                 $User->__set('set_strict', true);
 
                 $res = $User->get_by_ref($fields, $table, $ref, $type);
 
                 if ($res[0] == true) {
-                    $categories_exist = true;
+                    foreach ($res[1] as $product) {
+                        $id = $product['ListOrder'];
+                        $name = $product['productName'];
+                        $description = $product['cardDescription'];
+                        $image = $product['path_from_root'];
+
+                        if($image ==  null){
+                            $image = PROD_IMAGES."default.png";
+                        }
+                ?>
+                    <div class="col-sm col-md-4 col-lg-3 prod_card" id="<?php echo $id ?>">
+                        <div class="product_cards">
+                            <div class="img_el">
+                                <img src="<?php echo $image?>" alt="">
+                            </div>
+                            <h6><?php echo $name ?></h6>
+                            <p><?php echo $description ?></p>
+                            <button>
+                                View
+                            </button>
+                        </div>
+                    </div>
+                    <?php
+                    }
+                } else {
+                    ?>
+                    <div class="noItemsFound">
+                        <p>SORRY!</p>
+                        <p>We could not find any products matching your category.</p>
+                        <p>You could try <a href="#">this</a> instead.</p>
+                    </div>
+            <?php
                 }
             }
-            
-            
             ?>
+
 
             <?php
 
             ?>
+
         </div>
     </div>
 
@@ -63,16 +104,3 @@ passheader();
     pass_footer()
     ?>
 </body>
-
-<!-- <div class="col-sm col-md-4 col-lg-3 prod_card">
-    <div class="product_cards">
-        <div class="img_el">
-            <img src="<?php echo PROD_IMAGES . "shoe.jpg" ?>" alt="">
-        </div>
-        <h6>Male</h6>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, aspernatur cumque voluptate architecto deserunt commodi vitae Fuga amet dignissimos vel quo!</p>
-        <button>
-            View
-        </button>
-    </div>
-</div> -->

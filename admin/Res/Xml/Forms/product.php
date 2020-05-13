@@ -250,7 +250,9 @@
                              </div>
                              <div class="input_text_prptotype">
                                  <p class="Input_title">Card Description</p>
-                                 <textarea name="cardDescription" id="cardDescription" cols="30" rows="10" style="text-align: left"><?php if ($exist && $exist1){echo $simple[1][0]['cardDescription'];}?></textarea>
+                                 <textarea name="cardDescription" id="cardDescription" cols="30" rows="10" style="text-align: left" maxlength="150"><?php if ($exist && $exist1) {
+                                                                                                                                                        echo $simple[1][0]['cardDescription'];
+                                                                                                                                                    } ?></textarea>
                              </div>
                          </div>
                          <div id="Options" class="sku_btn_nav">
