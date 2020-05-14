@@ -74,27 +74,59 @@ passheader();
     <h4>Featured</h4>
     <div class="row" style="padding-top: 20px">
       <?php
-      $count = 3;
 
-      for ($i = 0; $i < $count; $i++) {
+      $fields = "*";
+      $table = "v_list_table_products";
+
+      $res = $User->get_by_ref($fields, $table);
+
+      if ($res[0]) {
+        $id;
+        $name;
+        $describe;
+        $image;
+
+        $count = 3;
+        for ($i = 0; $i < $count; $i++) {
+          $id = $res[1][$i]['ListOrder'];
+          $name = $res[1][$i]['productName'];
+          $describe = $res[1][$i]['cardDescription'];
+          $image = $res[1][$i]['path_from_root'];
+
+          if ($image == null) {
+            $image = PROD_IMAGES . "default.png";
+          }
       ?>
-        <div class="col-sm col-md-4 prod_card">
-          <div class="product_cards">
-            <div class="img_el">
-              <img src="<?php echo PROD_IMAGES . "default.png" ?>" alt="">
+          <div class="col-sm col-md-4 prod_card" id="<?php echo $id ?>" onclick="openProduct(<?php echo $id ?>)">
+            <div class="product_cards">
+              <div class="img_el">
+                <img src="<?php echo $image ?>" alt="">
+              </div>
+              <h6><?php echo $name ?>
+              </h6>
+              <p><?php echo $describe ?></p>
+              <button>
+                View
+              </button>
             </div>
-            <h6>PRODUCT NAME PRODUCT NAME PRODUCT NAME
-              PRODUCT NAME
-            </h6>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, aspernatur cumque voluptate architecto deserunt commodi vitae Fuga amet dignissimos vel quo!</p>
-            <button>
-              View
-            </button>
           </div>
-        </div>
+        <?php
+        }
+      } else {
+        ?>
+        <style>
+          .catalog {
+            display: none;
+          }
+        </style>
       <?php
       }
       ?>
+
+
+
+
+
     </div>
   </div>
 

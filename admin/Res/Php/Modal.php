@@ -4,6 +4,7 @@
   require_once 'Classes/classloader.php';
   require_once 'Metaconfig/metaData.php';
   require_once 'Metaconfig/metaFunction.php';
+  require_once 'View.php';
 
 $tables_ref = array(
   "tags" => array(

@@ -87,8 +87,9 @@ if ($resp[0] == true) {
                 </select>
             </li>
             <li>
-                <select name="" id="">
+                <select name="" id="" onchange="filterProducts()">
                     <option value="">Options</option>
+                    <option value="">Featured</option>
                 </select>
             </li>
             <li style="width:40px;height:1px;">
@@ -98,7 +99,7 @@ if ($resp[0] == true) {
                 <select name="product_bulk_option" id="product_bulk_option">
                     <option value="Sort" selected>Sort</option>
                     <option value="Delete">Delete</option>
-                    <option value="Disable">Disable</option>
+                    <option value="Featured">Add to featured</option>
                 </select>
             </li>
             <li style="margin-left: 5px">

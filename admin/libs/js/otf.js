@@ -1078,11 +1078,24 @@ function product_bulk_function() {
     products_action("bulk_products_action", data, call_back);
 
     function call_back(data) {
+        console.log(data);
+
         if ((data == true) || (data === 1)) {
-            alert("Deletion successful");
+            alert("Action successful");
             renderContent('Catalog');
         } else {
-            alert("Deletion Failed");
+            alert("Action Failed");
         }
+    }
+}
+
+function filterProducts() {
+    var selector = $(event.currentTarget);
+    var option = selector.find('option:selected').text();
+
+    products_action("filter_table", option, call_back);
+
+    function call_back(data) {
+        $('.salesListdash2').html(data);
     }
 }

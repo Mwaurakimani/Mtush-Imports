@@ -369,7 +369,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
              $ids_array = $data[1];
 
              switch($method){
-                 case "Sort";
+                case "Sort";
                     echo "Sort";
                     break;
                 case "Delete";
@@ -403,6 +403,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 case "Disable";
                     echo "Disable";
                     break;
+                case "Featured";
+                    $allResponse = true;
+                    foreach ($ids_array as $id) {
+                        $conn = $moderator->getConnection();
+                        //confirm it exist
+                        $exist = $moderator->ifItemExist($id, "tbl_products", "UUID", $conn);
+
+                        if (($exist == false)) {
+                            echo "Unable to delete Item";
+                        } else {
+                            $obj = $moderator->getitemsbyref($id, "tbl_products", "UUID", $conn);
+
+                            if($obj[0] != true){
+                                $allResponse = true;
+                                echo "not found";
+                            } else{
+                                $product_ID = $obj[1][0]['ListOrder'];
+
+                                $fields = [
+                                    'product_id'
+                                ];
+
+                                $values = [
+                                    $product_ID
+                                ];
+
+                                $dataset  = array_combine($fields, $values);
+
+                                $table = "tbl_featured";
+
+                                $type = "s"; 
+
+                                $response = $moderator->add_to_database($dataset, $table, $conn, $type,"(?)");
+
+                                if($response != true){
+                                    $allResponse = false;
+                                    echo $allResponse;
+                                    exit();
+                                }
+                            }
+                        }
+                    }
+                    echo $allResponse;
+                    break;
                 default:
                     echo "Invalid Method";
                 break;
@@ -412,6 +456,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          }else{
              //TODO:set a value for here  
          }
+    } elseif ($action == "filter_table"){
+        $data = isset($_REQUEST['data']) ? $_REQUEST['data'] : "";
+
+        if (!empty($data)) {
+            $option = $data;
+
+            switch ($option) {
+                case 'option':
+                    exit();
+                    break;
+                case 'Featured':
+                    load_table_products($moderator);
+                    break;
+                case 'other':
+                    echo 'other';
+                    break;
+                default:
+                    exit();
+            }
+
+            exit();
+        }else{
+            echo "no data";
+            exit();
+        }
     }else{
         echo (json_encode("Invalid Action"));
     }
